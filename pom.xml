@@ -21,7 +21,13 @@
   </developers>
 
   <modules>
-    <module>analysis-core</module>
-    <module>analysis-test</module>
+    <module>../analysis-core</module>
+    <module>../analysis-test</module>
+    <module>../checkstyle</module>
+    <module>../dry</module>
+    <module>../findbugs</module>
+    <module>../pmd</module>
+    <module>../tasks</module>
+    <module>../warnings</module>
   </modules>
 </project>
