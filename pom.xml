@@ -22,5 +22,6 @@
     <module>../pmd</module>
     <module>../tasks</module>
     <module>../warnings</module>
+    <module>../analysis-collector</module>
   </modules>
 </project>
