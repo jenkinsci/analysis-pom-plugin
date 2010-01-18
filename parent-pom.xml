@@ -38,11 +38,6 @@
       <artifactId>maven-plugin</artifactId>
     </dependency>
     <dependency>
-      <groupId>de.java2html</groupId>
-      <artifactId>java2html</artifactId>
-      <version>5.0</version>
-    </dependency>
-    <dependency>
       <groupId>findbugs</groupId>
       <artifactId>annotations</artifactId>
       <version>1.0.0</version>
@@ -58,13 +53,6 @@
       <artifactId>mockito-all</artifactId>
       <version>1.8.2</version>
         <scope>test</scope>
-    </dependency>
-    <dependency>
-    	<groupId>com.google.collections</groupId>
-    	<artifactId>google-collections</artifactId>
-    	<version>1.0</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
     </dependency>
   </dependencies>
 
