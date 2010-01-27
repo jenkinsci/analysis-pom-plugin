@@ -8,7 +8,7 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <artifactId>analysis-parent-pom</artifactId>
+  <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Hudson Analysis Parent POM</name>
   <version>1.0</version>
