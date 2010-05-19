@@ -100,7 +100,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>2.5</version>
+          <version>2.4</version>
           <configuration>
             <configLocation>../${project.artifactId}/checkstyle-configuration.xml</configLocation>
             <includeTestSourceDirectory>true</includeTestSourceDirectory>
@@ -128,7 +128,7 @@
             <effort>Max</effort>
             <debug>false</debug>
             <relaxed>false</relaxed>
-          </configuration>
+          </configuration>	
         </plugin>
       </plugins>
     </pluginManagement>
