@@ -132,7 +132,7 @@
             <debug>false</debug>
             <relaxed>false</relaxed>
             <excludeFilterFile>
-              ${project.artifactId}/findbugs-exclusion-filter.xml
+              ../${project.artifactId}/findbugs-exclusion-filter.xml
             </excludeFilterFile>
           </configuration>
         </plugin>
