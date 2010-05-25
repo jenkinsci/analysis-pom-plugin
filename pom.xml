@@ -137,6 +137,10 @@
     </pluginManagement>
   </build>
 
+  <properties>
+    <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+  </properties>
+
   <repositories>
     <repository>
       <id>java.net2</id>
