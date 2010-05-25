@@ -131,6 +131,9 @@
             <effort>Max</effort>
             <debug>false</debug>
             <relaxed>false</relaxed>
+            <excludeFilterFile>
+              ${project.artifactId}/findbugs-exclusion-filter.xml
+            </excludeFilterFile>
           </configuration>
         </plugin>
       </plugins>
