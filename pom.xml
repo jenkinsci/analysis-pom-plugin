@@ -114,6 +114,9 @@
             <rulesets>
               <ruleset>../${project.artifactId}/pmd-configuration.xml</ruleset>
             </rulesets>
+            <excludeRoots>
+              <excludeRoot>target/generated-sources/localizer</excludeRoot>
+            </excludeRoots>
             <targetJdk>1.5</targetJdk>
           </configuration>
         </plugin>
