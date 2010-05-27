@@ -87,6 +87,16 @@
         </configuration>
       </plugin>
     </plugins>
+    <resources>
+        <resource>
+            <directory>${basedir}/etc</directory>
+            <includes>
+              <include>**/*.properties</include>
+            </includes>
+            <targetPath>${basedir}/target</targetPath>
+            <filtering>true</filtering>
+        </resource>
+    </resources>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -103,6 +113,7 @@
           <version>2.4</version>
           <configuration>
             <configLocation>../${project.artifactId}/checkstyle-configuration.xml</configLocation>
+            <propertiesLocation>../${project.artifactId}/target/checkstyle.properties</propertiesLocation>
             <includeTestSourceDirectory>true</includeTestSourceDirectory>
           </configuration>
         </plugin>
