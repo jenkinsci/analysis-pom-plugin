@@ -11,7 +11,7 @@
   <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Hudson Analysis Parent POM</name>
-  <version>1.12-SNAPSHOT</version>
+  <version>1.11-SNAPSHOT</version>
 
   <licenses>
     <license>
