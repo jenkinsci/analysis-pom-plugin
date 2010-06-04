@@ -82,6 +82,7 @@
         <groupId>org.jvnet.hudson.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
         <configuration>
+          <disabledTestInjection>true</disabledTestInjection>
           <showDeprecation>true</showDeprecation>
           <showWarnings>true</showWarnings>
         </configuration>
