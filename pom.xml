@@ -40,7 +40,7 @@
     <dependency>
       <groupId>org.jvnet.hudson.plugins</groupId>
       <artifactId>dashboard-view</artifactId>
-      <version>1.5</version>
+      <version>1.8.1</version>
       <optional>true</optional>
     </dependency>
     <dependency>
@@ -52,8 +52,8 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-all</artifactId>
-      <version>1.8.4</version>
-        <scope>test</scope>
+      <version>1.8.5</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
     	<groupId>com.google.code.findbugs</groupId>
