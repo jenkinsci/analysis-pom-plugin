@@ -11,7 +11,7 @@
   <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Hudson Analysis Parent POM</name>
-  <version>1.15</version>
+  <version>1.16-SNAPSHOT</version>
 
   <licenses>
     <license>
@@ -172,10 +172,4 @@
       </snapshots>
     </repository>
   </repositories>
-
-  <scm>
-    <connection>scm:svn:https://guest@svn.java.net/svn/hudson~svn/tags/analysis-pom-1.15</connection>
-    <developerConnection>scm:svn:https://svn.java.net/svn/hudson~svn/tags/analysis-pom-1.15</developerConnection>
-    <url>https://svn.java.net/svn/hudson~svn/tags/analysis-pom-1.15</url>
-  </scm>
 </project>
