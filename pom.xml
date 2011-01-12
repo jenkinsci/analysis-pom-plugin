@@ -11,7 +11,7 @@
   <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Static Analysis Plug-ins Parent POM</name>
-  <version>1.16</version>
+  <version>1.17-SNAPSHOT</version>
 
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
@@ -198,11 +198,4 @@
       </snapshots>
     </repository>
   </repositories>
-
-
-  <scm>
-    <connection>scm:svn:https://guest@svn.java.net/svn/hudson~svn/tags/analysis-pom-1.16</connection>
-    <developerConnection>scm:svn:https://svn.java.net/svn/hudson~svn/tags/analysis-pom-1.16</developerConnection>
-    <url>https://svn.java.net/svn/hudson~svn/tags/analysis-pom-1.16</url>
-  </scm>
 </project>
