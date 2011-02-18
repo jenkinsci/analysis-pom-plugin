@@ -4,8 +4,7 @@
   <parent>
     <groupId>org.jvnet.hudson.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.393</version>
-    <relativePath>../pom.xml</relativePath>
+    <version>1.395</version>
   </parent>
 
   <artifactId>analysis-pom</artifactId>
@@ -15,7 +14,7 @@
 
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-    <analysis-config.version>1.0.8</analysis-config.version>
+    <analysis-config.version>1.0.11</analysis-config.version>
   </properties>
 
   <licenses>
@@ -30,6 +29,12 @@
   </licenses>
 
   <url>http://wiki.jenkins-ci.org/x/CwDgAQ</url>
+
+  <scm>
+    <connection>scm:git:git://github.com/jenkinsci/analysis-pom-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:jenkinsci/analysis-pom-plugin.git</developerConnection>
+  </scm>
+
   <developers>
     <developer>
       <name>Ulli Hafner</name>
@@ -179,13 +184,6 @@
     </pluginManagement>
   </build>
 
-  <distributionManagement>
-    <repository>
-      <id>java.net-m2-repository</id>
-      <url>http://maven.hudson-labs.org:8081/content/repositories/releases/</url>
-    </repository>
-  </distributionManagement>
-
   <repositories>
     <repository>
       <id>m.g.o-public</id>
@@ -198,4 +196,12 @@
       </snapshots>
     </repository>
   </repositories>
+
+  <distributionManagement>
+    <repository>
+      <id>maven.jenkins-ci.org</id>
+      <url>http://maven.jenkins-ci.org:8081/content/repositories/releases/</url>
+    </repository>
+  </distributionManagement>
+
 </project>
