@@ -138,8 +138,9 @@
         <extensions>true</extensions>
       </plugin>
       <plugin>
-        <groupId>org.jvnet.hudson.tools</groupId>
+        <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
+        <version>1.64</version>
         <configuration>
           <disabledTestInjection>true</disabledTestInjection>
           <showDeprecation>true</showDeprecation>
