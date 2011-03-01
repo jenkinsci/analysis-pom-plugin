@@ -16,7 +16,6 @@
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
     <analysis-config.version>1.0.11</analysis-config.version>
-    <github.repository>analysis-pom-plugin</github.repository>
   </properties>
 
   <licenses>
@@ -33,9 +32,9 @@
   <url>http://wiki.jenkins-ci.org/x/CwDgAQ</url>
 
   <scm>
-    <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}.git</connection>
-    <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}.git</developerConnection>
-    <url>https://github.com/jenkinsci/${artifactId}</url>
+    <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
+    <url>https://github.com/jenkinsci/${artifactId}-plugin</url>
   </scm>
 
   <ciManagement>
