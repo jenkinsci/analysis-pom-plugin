@@ -33,9 +33,9 @@
   <url>http://wiki.jenkins-ci.org/x/CwDgAQ</url>
 
   <scm>
-    <connection>scm:git:git://github.com/jenkinsci/${github.repository}.git</connection>
-    <developerConnection>scm:git:git@github.com:jenkinsci/${github.repository}.git</developerConnection>
-    <url>https://github.com/jenkinsci/${github.repository}</url>
+    <connection>scm:git:git://github.com/jenkinsci/${artifactId}.git</connection>
+    <developerConnection>scm:git:git@github.com:jenkinsci/${artifactId}.git</developerConnection>
+    <url>https://github.com/jenkinsci/${artifactId}</url>
   </scm>
 
   <ciManagement>
