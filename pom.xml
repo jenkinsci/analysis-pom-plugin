@@ -15,7 +15,7 @@
 
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-    <analysis-config.version>1.0.11</analysis-config.version>
+    <analysis-config.version>1.0.12</analysis-config.version>
   </properties>
 
   <licenses>
@@ -178,8 +178,8 @@
             <findbugsXmlOutput>true</findbugsXmlOutput>
             <threshold>Low</threshold>
             <effort>Max</effort>
-            <debug>false</debug>
             <relaxed>false</relaxed>
+            <fork>false</fork>
             <excludeFilterFile>findbugs-exclusion-filter.xml</excludeFilterFile>
           </configuration>
       </plugin>
