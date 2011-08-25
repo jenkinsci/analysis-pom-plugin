@@ -236,7 +236,7 @@
                   <pluginExecutionFilter>
                     <groupId>org.jenkins-ci.tools</groupId>
                     <artifactId>maven-hpi-plugin</artifactId>
-                    <versionRange>[1.72,)</versionRange>
+                    <versionRange>[1.71,)</versionRange>
                     <goals>
                       <goal>test-hpl</goal>
                       <goal>apt-compile</goal>
