@@ -11,7 +11,7 @@
   <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Static Analysis Plug-ins Parent POM</name>
-  <version>1.31</version>
+  <version>1.32-SNAPSHOT</version>
 
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
