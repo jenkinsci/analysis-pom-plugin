@@ -15,7 +15,7 @@
 
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-    <analysis-config.version>1.0.13</analysis-config.version>
+    <analysis-config.version>1.0.14</analysis-config.version>
   </properties>
 
   <licenses>
@@ -141,6 +141,7 @@
           <configuration>
             <configLocation>checkstyle-configuration.xml</configLocation>
             <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+            <propertyExpansion>config_loc=${project.build.directory}/</propertyExpansion> 
             <includeTestSourceDirectory>true</includeTestSourceDirectory>
           </configuration>
         </plugin>
