@@ -15,7 +15,7 @@
 
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-    <analysis-config.version>1.0.14</analysis-config.version>
+    <analysis-config.version>1.0.15</analysis-config.version>
   </properties>
 
   <licenses>
