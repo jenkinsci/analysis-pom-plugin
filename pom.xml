@@ -120,6 +120,13 @@
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>org.jenkins-ci.tools</groupId>
+          <artifactId>maven-hpi-plugin</artifactId>
+          <configuration>
+            <disabledTestInjection>true</disabledTestInjection>            
+          </configuration>        
+        </plugin>
+        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>cobertura-maven-plugin</artifactId>
           <version>2.4</version>
