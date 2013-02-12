@@ -124,7 +124,6 @@
           <compilerArguments>
             <properties>.settings/org.eclipse.jdt.core.prefs</properties>
             <enableJavadoc/>
-            <nowarn:>[generated-sources]</nowarn:>
           </compilerArguments>
         </configuration>
         <dependencies>
