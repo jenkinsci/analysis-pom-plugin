@@ -24,8 +24,6 @@
     <findbugs.annotations.version>2.0.0</findbugs.annotations.version>
 
     <!-- Maven plug-in versions -->
-    <maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
-    <jdt.plexus.compiler.version>2.1</jdt.plexus.compiler.version>
     <animal-sniffer-maven-plugin.version>1.9</animal-sniffer-maven-plugin.version>
     <cobertura-maven-plugin.version>2.5.2</cobertura-maven-plugin.version>
     <jacoco-maven-plugin.version>0.6.2.201302030002</jacoco-maven-plugin.version>
@@ -110,29 +108,6 @@
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>com.jayway.maven.plugins.android.generation2</groupId>
-        <artifactId>android-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <compilerId>eclipse</compilerId>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-          <compilerArguments>
-            <properties>.settings/org.eclipse.jdt.core.prefs</properties>
-            <enableJavadoc />
-          </compilerArguments>
-        </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>org.codehaus.plexus</groupId>
-            <artifactId>plexus-compiler-eclipse</artifactId>
-            <version>${jdt.plexus.compiler.version}</version>
-          </dependency>
-        </dependencies>
-      </plugin>
       <plugin>
         <!-- Simple hack to make m2e happy about the localizer plug-in -->
         <groupId>org.codehaus.mojo</groupId>
