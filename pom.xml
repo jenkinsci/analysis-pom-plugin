@@ -1,10 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.409</version>
+    <version>1.424</version>
   </parent>
 
   <groupId>org.jvnet.hudson.plugins</groupId>
@@ -15,7 +16,23 @@
 
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-    <analysis-config.version>1.0.17</analysis-config.version>
+    <java.version>1.5</java.version>
+
+    <!-- Dependencies versions -->
+    <analysis-config.version>1.0.21</analysis-config.version>
+    <org.junit.version>4.11</org.junit.version>
+    <org.mockito.version>1.9.5</org.mockito.version>
+    <findbugs.annotations.version>2.0.0</findbugs.annotations.version>
+
+    <!-- Maven plug-in versions -->
+    <maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
+    <jdt.plexus.compiler.version>2.1</jdt.plexus.compiler.version>
+    <animal-sniffer-maven-plugin.version>1.9</animal-sniffer-maven-plugin.version>
+    <cobertura-maven-plugin.version>2.5.2</cobertura-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.6.2.201302030002</jacoco-maven-plugin.version>
+    <maven-checkstyle-plugin.version>2.9.1</maven-checkstyle-plugin.version>
+    <maven-pmd-plugin.version>2.7.1</maven-pmd-plugin.version>
+    <findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
   </properties>
 
   <licenses>
@@ -39,7 +56,7 @@
 
   <ciManagement>
     <system>Jenkins</system>
-    <url>http://www.faktorzehn.org:8081/view/Jenkins/</url>
+    <url>https://buildhive.cloudbees.com/job/jenkinsci/</url>
   </ciManagement>
 
   <developers>
@@ -71,33 +88,53 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.10</version>
+      <version>${org.junit.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-all</artifactId>
-      <version>1.9.0</version>
+      <version>${org.mockito.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>jsr305</artifactId>
-      <version>2.0.0</version>
-      <type>jar</type>
-      <scope>compile</scope>
+      <version>${findbugs.annotations.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>annotations</artifactId>
-      <version>2.0.0</version>
-      <type>jar</type>
-      <scope>compile</scope>
+      <version>${findbugs.annotations.version}</version>
     </dependency>
   </dependencies>
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+        <artifactId>android-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <compilerId>eclipse</compilerId>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <compilerArguments>
+            <properties>.settings/org.eclipse.jdt.core.prefs</properties>
+            <enableJavadoc/>
+            <nowarn:>[generated-sources]</nowarn:>
+          </compilerArguments>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-compiler-eclipse</artifactId>
+            <version>${jdt.plexus.compiler.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
       <plugin>
         <!-- Simple hack to make m2e happy about the localizer plug-in -->
         <groupId>org.codehaus.mojo</groupId>
@@ -117,27 +154,27 @@
           </execution>
         </executions>
       </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>animal-sniffer-maven-plugin</artifactId>
-          <version>1.8</version>
-          <configuration>
-            <signature>
-              <groupId>org.codehaus.mojo.signature</groupId>
-              <artifactId>java15</artifactId>
-              <version>1.0</version>
-            </signature>
-          </configuration>
-          <executions>
-            <execution>
-              <id>jdk5-compatibility-check</id>
-              <phase>compile</phase>
-              <goals>
-                <goal>check</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>animal-sniffer-maven-plugin</artifactId>
+        <version>${animal-sniffer-maven-plugin.version}</version>
+        <configuration>
+          <signature>
+            <groupId>org.codehaus.mojo.signature</groupId>
+            <artifactId>java15</artifactId>
+            <version>1.0</version>
+          </signature>
+        </configuration>
+        <executions>
+          <execution>
+            <id>jdk5-compatibility-check</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
     <pluginManagement>
       <plugins>
@@ -151,7 +188,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>cobertura-maven-plugin</artifactId>
-          <version>2.4</version>
+          <version>${cobertura-maven-plugin.version}</version>
           <configuration>
             <format>xml</format>
           </configuration>
@@ -159,7 +196,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>2.9</version>
+          <version>${maven-checkstyle-plugin.version}</version>
           <dependencies>
             <dependency>
               <groupId>org.jvnet.hudson.plugins</groupId>
@@ -177,7 +214,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
-          <version>2.7.1</version>
+          <version>${maven-pmd-plugin.version}</version>
           <dependencies>
             <dependency>
               <groupId>org.jvnet.hudson.plugins</groupId>
@@ -189,7 +226,7 @@
             <rulesets>
               <ruleset>pmd-configuration.xml</ruleset>
             </rulesets>
-            <targetJdk>1.5</targetJdk>
+            <targetJdk>${java.version}</targetJdk>
             <excludeRoots>
               <excludeRoot>target/generated-sources/localizer</excludeRoot>
             </excludeRoots>
@@ -198,7 +235,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>findbugs-maven-plugin</artifactId>
-          <version>2.4.0</version>
+          <version>${findbugs-maven-plugin.version}</version>
           <dependencies>
             <dependency>
               <groupId>org.jvnet.hudson.plugins</groupId>
@@ -214,101 +251,6 @@
             <relaxed>false</relaxed>
             <fork>false</fork>
             <excludeFilterFile>findbugs-exclusion-filter.xml</excludeFilterFile>
-          </configuration>
-        </plugin>
-        <!--This plugin's configuration is used to store Eclipse m2e settings 
-          only. It has no influence on the Maven build itself. -->
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.jenkins-ci.tools</groupId>
-                    <artifactId>maven-hpi-plugin</artifactId>
-                    <versionRange>[1.67,)</versionRange>
-                    <goals>
-                      <goal>insert-test</goal>
-                      <goal>apt-compile</goal>
-                      <goal>resolve-test-dependencies</goal>
-                      <goal>test-hpl</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.jvnet.localizer</groupId>
-                    <artifactId>maven-localizer-plugin</artifactId>
-                    <versionRange>[1.12,)</versionRange>
-                    <goals>
-                      <goal>generate</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <versionRange>[1.0,)</versionRange>
-                    <goals>
-                      <goal>display-info</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.codehaus.groovy.maven</groupId>
-                    <artifactId>gmaven-plugin</artifactId>
-                    <versionRange>[1.0-rc-5,)</versionRange>
-                    <goals>
-                      <goal>generateTestStubs</goal>
-                      <goal>testCompile</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>com.cloudbees</groupId>
-                    <artifactId>maven-license-plugin</artifactId>
-                    <versionRange>[1.1,)</versionRange>
-                    <goals>
-                      <goal>process</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.kohsuke</groupId>
-                    <artifactId>access-modifier-checker</artifactId>
-                    <versionRange>[1.0,)</versionRange>
-                    <goals>
-                      <goal>enforce</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
           </configuration>
         </plugin>
       </plugins>
@@ -336,5 +278,5 @@
     </repository>
   </distributionManagement>
 
-</project>  
+</project>
 
