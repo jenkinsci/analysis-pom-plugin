@@ -18,7 +18,7 @@
     <java.version>1.5</java.version>
 
     <!-- Dependencies versions -->
-    <analysis-config.version>1.0.21</analysis-config.version>
+    <analysis-config.version>1.0.22</analysis-config.version>
     <org.junit.version>4.11</org.junit.version>
     <org.mockito.version>1.9.5</org.mockito.version>
     <findbugs.annotations.version>2.0.0</findbugs.annotations.version>
