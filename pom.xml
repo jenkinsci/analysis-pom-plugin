@@ -25,8 +25,8 @@
 
     <!-- Maven plug-in versions -->
     <animal-sniffer-maven-plugin.version>1.9</animal-sniffer-maven-plugin.version>
-    <cobertura-maven-plugin.version>2.5.2</cobertura-maven-plugin.version>
-    <jacoco-maven-plugin.version>0.6.2.201302030002</jacoco-maven-plugin.version>
+    <cobertura-maven-plugin.version>2.6</cobertura-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.6.3.201306030806</jacoco-maven-plugin.version>
     <maven-checkstyle-plugin.version>2.10</maven-checkstyle-plugin.version>
     <maven-pmd-plugin.version>3.0.1</maven-pmd-plugin.version>
     <findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
@@ -53,7 +53,7 @@
 
   <ciManagement>
     <system>Jenkins</system>
-    <url>https://buildhive.cloudbees.com/job/jenkinsci/</url>
+    <url>https://buildhive.cloudbees.com/job/jenkinsci/${project.artifactId}-plugin</url>
   </ciManagement>
 
   <developers>
