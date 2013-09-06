@@ -156,7 +156,6 @@
           <artifactId>maven-hpi-plugin</artifactId>
           <configuration>
             <disabledTestInjection>true</disabledTestInjection>
-            <pluginFirstClassLoader>true</pluginFirstClassLoader>
           </configuration>
         </plugin>
         <plugin>
