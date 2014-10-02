@@ -11,7 +11,7 @@
   <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Static Analysis Plug-ins Parent POM</name>
-  <version>1.55-SNAPSHOT</version>
+  <version>1.54-SNAPSHOT</version>
 
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
@@ -122,7 +122,7 @@
           <testTarget>${java.version}</testTarget>
           <compilerArguments>
             <properties>.settings/org.eclipse.jdt.core.prefs</properties>
-            <enableJavadoc />
+            <enableJavadoc/>
           </compilerArguments>
         </configuration>
         <dependencies>
