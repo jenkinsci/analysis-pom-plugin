@@ -24,12 +24,14 @@
     <findbugs.annotations.version>2.0.0</findbugs.annotations.version>
 
     <!-- Maven plug-in versions -->
-    <animal-sniffer-maven-plugin.version>1.9</animal-sniffer-maven-plugin.version>
+    <animal-sniffer-maven-plugin.version>1.11</animal-sniffer-maven-plugin.version>
     <cobertura-maven-plugin.version>2.6</cobertura-maven-plugin.version>
-    <jacoco-maven-plugin.version>0.6.3.201306030806</jacoco-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.7.2.201409121644</jacoco-maven-plugin.version>
     <maven-checkstyle-plugin.version>2.10</maven-checkstyle-plugin.version>
     <maven-pmd-plugin.version>3.0.1</maven-pmd-plugin.version>
     <findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
+    <compiler.maven.plugin>3.1</compiler.maven.plugin>
+    <jdt.plexus.compiler.version>2.2</jdt.plexus.compiler.version>
   </properties>
 
   <licenses>
@@ -110,23 +112,26 @@
   <build>
     <plugins>
       <plugin>
-        <!-- Simple hack to make m2e happy about the localizer plug-in -->
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>add-source</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>add-source</goal>
-            </goals>
-            <configuration>
-              <sources>
-                <source>target/generated-sources/localizer</source>
-              </sources>
-            </configuration>
-          </execution>
-        </executions>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler.maven.plugin}</version>
+        <configuration>
+          <compilerId>eclipse</compilerId>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <testSource>${java.version}</testSource>
+          <testTarget>${java.version}</testTarget>
+          <compilerArguments>
+            <properties>.settings/org.eclipse.jdt.core.prefs</properties>
+            <enableJavadoc/>
+          </compilerArguments>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-compiler-eclipse</artifactId>
+            <version>${jdt.plexus.compiler.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
