@@ -50,12 +50,11 @@
     <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
     <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
-    <tag>HEAD</tag>
   </scm>
 
   <ciManagement>
     <system>Jenkins</system>
-    <url>https://buildhive.cloudbees.com/job/jenkinsci/${project.artifactId}-plugin</url>
+    <url>https://jenkins.ci.cloudbees.com/job/plugins/job/${project.artifactId}-plugin</url>
   </ciManagement>
 
   <developers>
