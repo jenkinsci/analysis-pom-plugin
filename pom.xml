@@ -4,7 +4,8 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.532</version>
+    <version>1.554.3</version>
+    <relativePath></relativePath>
   </parent>
 
   <groupId>org.jvnet.hudson.plugins</groupId>
@@ -19,18 +20,21 @@
 
     <!-- Dependencies versions -->
     <analysis-config.version>1.0.34</analysis-config.version>
-    <org.junit.version>4.11</org.junit.version>
-    <org.mockito.version>1.9.5</org.mockito.version>
+    <junit.version>4.11</junit.version>
+    <mockito.version>1.10.8</mockito.version>
     <findbugs.annotations.version>2.0.0</findbugs.annotations.version>
+    <dashboard-view.version>2.9.4</dashboard-view.version>
+    <token-macro.version>1.10</token-macro.version>
 
     <!-- Maven plug-in versions -->
-    <animal-sniffer-maven-plugin.version>1.11</animal-sniffer-maven-plugin.version>
-    <cobertura-maven-plugin.version>2.6</cobertura-maven-plugin.version>
-    <jacoco-maven-plugin.version>0.7.2.201409121644</jacoco-maven-plugin.version>
+    <maven-animal-sniffer-plugin.version>1.11</maven-animal-sniffer-plugin.version>
+    <maven-cobertura-plugin.version>2.6</maven-cobertura-plugin.version>
+    <maven-jacoco-plugin.version>0.7.2.201409121644</maven-jacoco-plugin.version>
     <maven-checkstyle-plugin.version>2.10</maven-checkstyle-plugin.version>
     <maven-pmd-plugin.version>3.0.1</maven-pmd-plugin.version>
-    <findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
-    <compiler.maven.plugin>3.1</compiler.maven.plugin>
+    <maven-findbugs-plugin.version>2.5.2</maven-findbugs-plugin.version>
+    <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+    <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
   </properties>
 
   <licenses>
@@ -70,30 +74,31 @@
     <dependency>
       <groupId>org.jenkins-ci.main</groupId>
       <artifactId>maven-plugin</artifactId>
+      <version>2.4</version>
       <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>dashboard-view</artifactId>
-      <version>2.2</version>
+      <version>${dashboard-view.version}</version>
       <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>token-macro</artifactId>
-      <version>1.5.1</version>
+      <version>${token-macro.version}</version>
       <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>${org.junit.version}</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-all</artifactId>
-      <version>${org.mockito.version}</version>
+      <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -112,7 +117,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${compiler.maven.plugin}</version>
+        <version>${maven-compiler-plugin.version}</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
@@ -123,7 +128,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>animal-sniffer-maven-plugin</artifactId>
-        <version>${animal-sniffer-maven-plugin.version}</version>
+        <version>${maven-animal-sniffer-plugin.version}</version>
         <configuration>
           <signature>
             <groupId>org.codehaus.mojo.signature</groupId>
@@ -154,14 +159,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.5</version>
-          <dependencies>
-            <dependency>
-              <groupId>org.apache.maven.scm</groupId>
-              <artifactId>maven-scm-provider-gitexe</artifactId>
-              <version>1.9.2</version>
-            </dependency>
-          </dependencies>
+          <version>${maven-release-plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>org.jenkins-ci.tools</groupId>
@@ -173,7 +171,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>cobertura-maven-plugin</artifactId>
-          <version>${cobertura-maven-plugin.version}</version>
+          <version>${maven-cobertura-plugin.version}</version>
           <configuration>
             <format>xml</format>
           </configuration>
@@ -220,7 +218,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>findbugs-maven-plugin</artifactId>
-          <version>${findbugs-maven-plugin.version}</version>
+          <version>${maven-findbugs-plugin.version}</version>
           <dependencies>
             <dependency>
               <groupId>org.jvnet.hudson.plugins</groupId>
