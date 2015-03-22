@@ -8,17 +8,22 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.jenkins-ci.main:maven-plugin:2.4" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci.plugins:matrix-project:1.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci.plugins:script-security:1.13" level="project" />
+    <orderEntry type="library" name="Maven: org.kohsuke:groovy-sandbox:1.8" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci.main:maven-plugin:2.9" level="project" />
     <orderEntry type="library" name="Maven: org.jenkins-ci.plugins:javadoc:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.jenkins-ci.plugins:mailer:1.7" level="project" />
-    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven-agent:1.5" level="project" />
-    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven-interceptor:1.5" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven-agent:1.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven-interceptor:1.6" level="project" />
     <orderEntry type="library" name="Maven: org.jvnet.hudson:maven2.1-interceptor:1.2" level="project" />
-    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven3-agent:1.5" level="project" />
-    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven31-agent:1.5" level="project" />
-    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven3-interceptor:1.5" level="project" />
-    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven31-interceptor:1.5" level="project" />
-    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven3-interceptor-commons:1.5" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven3-agent:1.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven31-agent:1.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven32-agent:1.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven3-interceptor:1.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven31-interceptor:1.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven32-interceptor:1.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci.main.maven:maven3-interceptor-commons:1.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-core:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-model:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-settings:3.1.0" level="project" />
@@ -72,6 +77,7 @@
     <orderEntry type="library" name="Maven: org.apache.maven.wagon:wagon-webdav-jackrabbit:2.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven.wagon:wagon-http-shared:2.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.jackrabbit:jackrabbit-webdav:2.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.jenkins-ci:SECURITY-144-compat:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.jenkins-ci.plugins:dashboard-view:2.9.4" level="project" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:1.6" level="project" />
     <orderEntry type="library" name="Maven: org.jenkins-ci.plugins:token-macro:1.10" level="project" />
@@ -207,7 +213,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jenkins-ci.plugins:matrix-auth:1.0.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jenkins-ci.plugins:antisamy-markup-formatter:1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.kohsuke:owasp-html-sanitizer:r88" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.jenkins-ci.plugins:matrix-project:1.0-beta-1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jenkins-ci.plugins:junit:1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.mortbay.jetty:jetty:6.1.26" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.mortbay.jetty:jetty-util:6.1.26" level="project" />

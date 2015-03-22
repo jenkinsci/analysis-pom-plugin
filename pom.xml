@@ -25,6 +25,8 @@
     <findbugs.annotations.version>2.0.0</findbugs.annotations.version>
     <dashboard-view.version>2.9.4</dashboard-view.version>
     <token-macro.version>1.10</token-macro.version>
+    <jenkins-maven-plugin.version>2.9</jenkins-maven-plugin.version>
+    <matrix-project.version>1.2.1</matrix-project.version>
 
     <!-- Maven plug-in versions -->
     <maven-animal-sniffer-plugin.version>1.11</maven-animal-sniffer-plugin.version>
@@ -72,9 +74,14 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.jenkins-ci.plugins</groupId>
+      <artifactId>matrix-project</artifactId>
+      <version>${matrix-project.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.jenkins-ci.main</groupId>
       <artifactId>maven-plugin</artifactId>
-      <version>2.4</version>
+      <version>${jenkins-maven-plugin.version}</version>
       <optional>true</optional>
     </dependency>
     <dependency>
