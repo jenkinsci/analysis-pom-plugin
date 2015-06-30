@@ -28,7 +28,7 @@
     <matrix-project.version>1.2.1</matrix-project.version>
 
     <!-- Maven plug-in versions -->
-    <maven-animal-sniffer-plugin.version>1.11</maven-animal-sniffer-plugin.version>
+    <maven-animal-sniffer-plugin.version>1.14</maven-animal-sniffer-plugin.version>
     <maven-cobertura-plugin.version>2.6</maven-cobertura-plugin.version>
     <maven-jacoco-plugin.version>0.7.2.201409121644</maven-jacoco-plugin.version>
     <maven-checkstyle-plugin.version>2.10</maven-checkstyle-plugin.version>
@@ -139,7 +139,7 @@
           <signature>
             <groupId>org.codehaus.mojo.signature</groupId>
             <artifactId>java16</artifactId>
-            <version>1.0</version>
+            <version>1.1</version>
           </signature>
         </configuration>
         <executions>
