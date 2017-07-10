@@ -24,7 +24,7 @@
     <mockito.version>1.10.8</mockito.version>
     <findbugs.annotations.version>2.0.0</findbugs.annotations.version>
     <dashboard-view.version>2.9.4</dashboard-view.version>
-    <token-macro.version>1.10</token-macro.version>
+    <token-macro.version>2.1</token-macro.version>
     <jenkins-maven-plugin.version>2.9</jenkins-maven-plugin.version>
     <matrix-project.version>1.2.1</matrix-project.version>
 
