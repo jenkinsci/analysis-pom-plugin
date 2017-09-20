@@ -122,6 +122,10 @@
                 <exclude>org.codehaus.plexus:plexus-classworlds</exclude>
                 <exclude>org.codehaus.plexus:plexus-utils</exclude>
                 <exclude>org.jenkins-ci.plugins:junit</exclude>
+                <exclude>org.jenkins-ci.plugins:mailer</exclude>
+                <exclude>org.jenkins-ci.modules:instance-identity</exclude>
+                <exclude>org.jenkins-ci.modules:ssh-cli-auth</exclude>
+                <exclude>commons-io:commons-io</exclude>
               </excludes>
             </requireUpperBoundDeps>
           </rules>
@@ -210,6 +214,13 @@
             <relaxed>false</relaxed>
             <fork>false</fork>
             <excludeFilterFile>findbugs-exclusion-filter.xml</excludeFilterFile>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <configuration>
+            <additionalparam>-Xdoclint:none</additionalparam>
           </configuration>
         </plugin>
       </plugins>
