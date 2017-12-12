@@ -26,7 +26,7 @@
     <mockito.version>1.10.8</mockito.version>
     <dashboard-view.version>2.9.4</dashboard-view.version>
     <token-macro.version>2.1</token-macro.version>
-    <jenkins-maven-plugin.version>2.18-20170921.112418-3</jenkins-maven-plugin.version>
+    <jenkins-maven-plugin.version>3.0</jenkins-maven-plugin.version>
     <matrix-project.version>1.7.1</matrix-project.version>
     <junit-plugin.version>1.6</junit-plugin.version>
 
