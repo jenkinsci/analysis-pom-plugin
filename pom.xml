@@ -26,8 +26,9 @@
     <mockito.version>1.10.8</mockito.version>
     <dashboard-view.version>2.9.4</dashboard-view.version>
     <token-macro.version>2.1</token-macro.version>
-    <jenkins-maven-plugin.version>2.17</jenkins-maven-plugin.version>
+    <jenkins-maven-plugin.version>3.0</jenkins-maven-plugin.version>
     <matrix-project.version>1.7.1</matrix-project.version>
+    <junit-plugin.version>1.6</junit-plugin.version>
 
     <!-- Maven plug-in versions -->
     <maven-cobertura-plugin.version>2.6</maven-cobertura-plugin.version>
@@ -84,6 +85,11 @@
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit-plugin.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>dashboard-view</artifactId>
       <version>${dashboard-view.version}</version>
       <optional>true</optional>
@@ -103,35 +109,6 @@
   </dependencies>
 
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <configuration>
-          <rules>
-            <requireUpperBoundDeps>
-              <excludes combine.children="append">
-                <!-- All of these are required as maven-plugin has
-                     a lot of inconsistent transitive dependencies -->
-                <exclude>org.apache.ant:ant</exclude>
-                <exclude>org.apache.httpcomponents:httpclient</exclude>
-                <exclude>org.apache.httpcomponents:httpcore</exclude>
-                <exclude>org.apache.maven:maven-aether-provider</exclude>
-                <exclude>org.apache.maven:maven-core</exclude>
-                <exclude>org.apache.maven:maven-embedder</exclude>
-                <exclude>org.codehaus.plexus:plexus-classworlds</exclude>
-                <exclude>org.codehaus.plexus:plexus-utils</exclude>
-                <exclude>org.jenkins-ci.plugins:junit</exclude>
-                <exclude>org.jenkins-ci.plugins:mailer</exclude>
-                <exclude>org.jenkins-ci.modules:instance-identity</exclude>
-                <exclude>org.jenkins-ci.modules:ssh-cli-auth</exclude>
-                <exclude>commons-io:commons-io</exclude>
-              </excludes>
-            </requireUpperBoundDeps>
-          </rules>
-        </configuration>
-      </plugin>
-    </plugins>
     <pluginManagement>
       <plugins>
         <plugin>
