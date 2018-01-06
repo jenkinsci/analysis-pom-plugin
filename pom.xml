@@ -27,7 +27,7 @@
     <dashboard-view.version>2.9.4</dashboard-view.version>
     <token-macro.version>2.1</token-macro.version>
     <jenkins-maven-plugin.version>2.17</jenkins-maven-plugin.version>
-    <matrix-project.version>1.7.1</matrix-project.version>
+    <matrix-project.version>1.12-20170922.195719-2</matrix-project.version> <!-- TODO https://github.com/jenkinsci/matrix-project-plugin/pull/53 -->
 
     <!-- Maven plug-in versions -->
     <maven-cobertura-plugin.version>2.6</maven-cobertura-plugin.version>
@@ -76,6 +76,7 @@
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>matrix-project</artifactId>
       <version>${matrix-project.version}</version>
+      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.main</groupId>
