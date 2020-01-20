@@ -13,6 +13,7 @@
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
   <version>2.0.0-beta-2-SNAPSHOT</version>
+  <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
 
   <properties>
     <revision>2.0.0-beta-1</revision>
@@ -22,8 +23,6 @@
     <jenkins-test-harness.version>2.59</jenkins-test-harness.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
     <codingstyle.version>0.3.2</codingstyle.version>
-
-    <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
 
     <!-- Library Dependencies Versions -->
     <error-prone.version>2.3.4</error-prone.version>
@@ -190,13 +189,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>${maven-jar-plugin.version}</version>
         <configuration>
           <archive>
             <manifestEntries>
               <Built-By>Ullrich Hafner</Built-By>
               <Url>${project.scm.url}</Url>
-              <Jenkins-ClassFilter-Whitelisted>true</Jenkins-ClassFilter-Whitelisted>
             </manifestEntries>
           </archive>
         </configuration>
@@ -424,7 +421,6 @@
           </dependency>
         </dependencies>
         <configuration>
-          <skip>true</skip>
           <analysisConfiguration>
             <revapi.semver.ignore>
               <enabled>true</enabled>
@@ -479,14 +475,10 @@
           </execution>
         </executions>
         <configuration>
-          <packages>
-            <package>io.jenkins.plugins.forensics</package>
-          </packages>
           <excludes>
             <exclude>.*ITest</exclude>
             <exclude>.*Action</exclude>
           </excludes>
-          <entryPointClassPackage>io.jenkins.plugins.forensics.assertions</entryPointClassPackage>
           <cleanTargetDir>true</cleanTargetDir>
           <hierarchical>false</hierarchical>
           <generateBddAssertions>false</generateBddAssertions>
@@ -515,10 +507,12 @@
                       <!-- Junit >= 5.3 contains some java9 classes -->
                       <ignoreClass>**/ModuleUtils*</ignoreClass>
                     </ignoreClasses>
+                  </enforceBytecodeVersion>
+                  <requireUpperBoundDeps>
                     <excludes combine.children="append">
                       <exclude>org.slf4j:slf4j-api</exclude>
                     </excludes>
-                  </enforceBytecodeVersion>
+                  </requireUpperBoundDeps>
                 </rules>
               </configuration>
             </execution>
