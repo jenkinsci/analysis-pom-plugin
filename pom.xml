@@ -479,6 +479,9 @@
             <exclude>.*ITest</exclude>
             <exclude>.*Action</exclude>
           </excludes>
+          <packages combine.children="append">
+            <package>io.jenkins.plugins.pom</package>
+          </packages>
           <cleanTargetDir>true</cleanTargetDir>
           <hierarchical>false</hierarchical>
           <generateBddAssertions>false</generateBddAssertions>
