@@ -1,11 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
     <version>3.55</version>
-    <relativePath />
+    <relativePath/>
   </parent>
 
   <groupId>org.jvnet.hudson.plugins</groupId>
@@ -49,6 +50,8 @@
     <maven-failsafe.plugin>3.0.0-M4</maven-failsafe.plugin>
     <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
     <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+    <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
+    <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
     <pitest-maven.plugin>1.4.11</pitest-maven.plugin>
     <pitest-maven.junit5.plugin>0.11</pitest-maven.junit5.plugin>
     <revapi-maven-plugin.version>0.11.2</revapi-maven-plugin.version>
@@ -544,6 +547,16 @@
               </goals>
             </execution>
           </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${maven-dependency-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${maven-resources-plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
