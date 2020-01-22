@@ -12,12 +12,10 @@
   <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
-  <version>${revision}${changelist}</version>
+  <version>2.1.0-SNAPSHOT</version>
   <url>https://github.com/jenkinsci/analysis-pom-plugin</url>
 
   <properties>
-    <revision>2.1.0</revision>
-    <changelist>-SNAPSHOT</changelist>
     <jenkins.version>2.138.4</jenkins.version>
     <java.level>8</java.level>
     <jenkins-test-harness.version>2.59</jenkins-test-harness.version>
@@ -587,10 +585,6 @@
     <repository>
       <id>repo.jenkins-ci.org</id>
       <url>https://repo.jenkins-ci.org/public/</url>
-    </repository>
-    <repository>
-      <id>incrementals.jenkins-ci.org</id>
-      <url>https://repo.jenkins-ci.org/incrementals/</url>
     </repository>
   </repositories>
 
