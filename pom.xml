@@ -211,6 +211,7 @@
             <configuration>
               <includes>
                 <include>**/*Assert*</include>
+                <include>**/*PageObject*</include>
               </includes>
             </configuration>
           </execution>
