@@ -24,7 +24,7 @@
   <properties>
     <jenkins.version>2.138.4</jenkins.version>
     <java.level>8</java.level>
-    <jenkins-test-harness.version>2.59</jenkins-test-harness.version>
+    <jenkins-test-harness.version>2.60</jenkins-test-harness.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
     <codingstyle.version>0.3.2</codingstyle.version>
 
@@ -87,6 +87,11 @@
         <version>4</version>
         <scope>import</scope>
         <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.jenkins-ci.main</groupId>
+        <artifactId>jenkins-test-harness</artifactId>
+        <version>${jenkins-test-harness.version}</version>
       </dependency>
       <dependency>
         <groupId>org.hamcrest</groupId>
