@@ -316,6 +316,7 @@
           </execution>
         </executions>
         <configuration>
+          <linkXRef>false</linkXRef>
           <failOnViolation>false</failOnViolation>
           <configLocation>checkstyle-configuration.xml</configLocation>
           <includeTestSourceDirectory>true</includeTestSourceDirectory>
@@ -350,6 +351,7 @@
           </execution>
         </executions>
         <configuration>
+          <linkXRef>false</linkXRef>
           <rulesets>
             <ruleset>pmd-configuration.xml</ruleset>
           </rulesets>
