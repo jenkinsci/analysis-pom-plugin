@@ -39,7 +39,7 @@
     <mockito.version>3.3.1</mockito.version>
     <assertj.version>3.15.0</assertj.version>
     <archunit.version>0.13.1</archunit.version>
-    <json-unit-fluent.version>2.13.0</json-unit-fluent.version>
+    <json-unit-fluent.version>2.14.0</json-unit-fluent.version>
 
     <!-- Maven plug-in versions -->
     <maven-pmd-plugin.version>3.13.0</maven-pmd-plugin.version>
