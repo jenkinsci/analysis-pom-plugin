@@ -509,6 +509,7 @@
           <hierarchical>false</hierarchical>
           <generateBddAssertions>false</generateBddAssertions>
           <generateJUnitSoftAssertions>false</generateJUnitSoftAssertions>
+          <quiet>true</quiet>
           <templates>
             <templatesDirectory>${project.basedir}/etc/templates/</templatesDirectory>
             <assertionsEntryPointClass>assertions_entry_point_class_template.txt</assertionsEntryPointClass>
