@@ -12,6 +12,6 @@ to all my plugins. This POM enforces the [Java style guide](https://github.com/u
 in these plugins (and in my lectures at the Munich University of Applied Sciences).
 
 [![Jenkins](https://ci.jenkins.io/job/Plugins/job/analysis-pom-plugin/job/master/badge/icon)](https://ci.jenkins.io/job/Plugins/job/analysis-pom-plugin/job/master/)
-[![GitHub Actions](https://github.com/jenkinsci/analysis-pom-plugin/workflows/GitHub%20Actions/badge.svg)](https://github.com/jenkinsci/analysis-pom-plugin/actions)
+[![GitHub Actions](https://github.com/jenkinsci/analysis-pom-plugin/workflows/CI%20on%20all%20platforms/badge.svg?branch=master)](https://github.com/jenkinsci/analysis-pom-plugin/actions)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/jenkinsci/analysis-pom-plugin.svg)](https://github.com/jenkinsci/analysis-pom-plugin/pulls)
 
