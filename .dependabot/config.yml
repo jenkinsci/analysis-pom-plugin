@@ -11,3 +11,6 @@ update_configs:
       - match:
           dependency_name: org.revapi:revapi-java
           version_requirement: "< 0.20.2"
+      - match:
+          dependency_name: "asm"
+          version_requirement: ">= 6.x"
