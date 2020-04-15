@@ -30,7 +30,7 @@
 
     <!-- Library Dependencies Versions -->
     <error-prone.version>2.3.4</error-prone.version>
-    <spotbugs.annotations>4.0.1</spotbugs.annotations>
+    <spotbugs.annotations>4.0.2</spotbugs.annotations>
     <slf4j.version>1.7.30</slf4j.version>
 
     <!-- Test Library Dependencies Versions -->
