@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>3.57</version>
+    <version>4.0</version>
     <relativePath />
   </parent>
 
@@ -12,7 +12,7 @@
   <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
-  <version>2.4.2-SNAPSHOT</version>
+  <version>4.0.0-SNAPSHOT</version>
   <url>https://github.com/jenkinsci/analysis-pom-plugin</url>
   <description>This static analysis POM serves as parent POM for all my Jenkins Plugins. It basically enhances the
     Parent POM for Jenkins Plugins (see https://github.com/jenkinsci/plugin-pom) with a predefined configuration of
@@ -22,9 +22,9 @@
   </description>
 
   <properties>
-    <jenkins.version>2.138.4</jenkins.version>
+    <jenkins.baseline>2.204</jenkins.baseline>
+    <jenkins.version>${jenkins.baseline}.4</jenkins.version>
     <java.level>8</java.level>
-    <jenkins-test-harness.version>2.63</jenkins-test-harness.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
     <codingstyle.config.version>1.1.0</codingstyle.config.version>
 
@@ -83,15 +83,10 @@
     <dependencies>
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
-        <artifactId>bom-2.138.x</artifactId>
-        <version>4</version>
+        <artifactId>bom-${jenkins.baseline}.x</artifactId>
+        <version>9</version>
         <scope>import</scope>
         <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.jenkins-ci.main</groupId>
-        <artifactId>jenkins-test-harness</artifactId>
-        <version>${jenkins-test-harness.version}</version>
       </dependency>
       <dependency>
         <groupId>org.hamcrest</groupId>
