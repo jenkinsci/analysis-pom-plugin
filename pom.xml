@@ -602,6 +602,7 @@
         <skipTests>true</skipTests>
         <skipITs>true</skipITs>
         <revapi.skip>true</revapi.skip>
+        <enforcer.skip>true</enforcer.skip>
       </properties>
     </profile>
   </profiles>
