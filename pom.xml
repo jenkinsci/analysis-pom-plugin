@@ -55,7 +55,7 @@
     <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
     <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
     <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
-    <pitest-maven.plugin>1.5.1</pitest-maven.plugin>
+    <pitest-maven.plugin>1.5.2</pitest-maven.plugin>
     <pitest-maven.junit5.plugin>0.12</pitest-maven.junit5.plugin>
     <revapi-maven-plugin.version>0.11.4</revapi-maven-plugin.version>
     <revapi-java.version>0.20.2</revapi-java.version>
