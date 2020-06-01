@@ -29,7 +29,7 @@
     <codingstyle.config.version>1.1.0</codingstyle.config.version>
 
     <!-- Library Dependencies Versions -->
-    <error-prone.version>2.3.4</error-prone.version>
+    <error-prone.version>2.4.0</error-prone.version>
     <spotbugs.annotations>4.0.3</spotbugs.annotations>
     <slf4j.version>1.7.30</slf4j.version>
 
