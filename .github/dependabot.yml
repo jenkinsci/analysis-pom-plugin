@@ -1,0 +1,17 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: org.ow2.asm:asm
+    versions:
+    - ">= 0"
+  - dependency-name: org.revapi:revapi-java
+    versions:
+    - "< 0.20.2"
+  - dependency-name: org.revapi:revapi-maven-plugin
+    versions:
+    - "< 0.11.4"
