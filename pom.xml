@@ -1,18 +1,19 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
     <version>4.6</version>
-    <relativePath />
+    <relativePath/>
   </parent>
 
   <groupId>org.jvnet.hudson.plugins</groupId>
   <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
-  <version>4.0.1-SNAPSHOT</version>
+  <version>4.1.0-SNAPSHOT</version>
   <url>https://github.com/jenkinsci/analysis-pom-plugin</url>
   <description>This static analysis POM serves as parent POM for all my Jenkins Plugins. It basically enhances the
     Parent POM for Jenkins Plugins (see https://github.com/jenkinsci/plugin-pom) with a predefined configuration of
@@ -23,10 +24,10 @@
 
   <properties>
     <jenkins.baseline>2.204</jenkins.baseline>
-    <jenkins.version>${jenkins.baseline}.4</jenkins.version>
+    <jenkins.version>${jenkins.baseline}.6</jenkins.version>
     <java.level>8</java.level>
     <spotbugs.failOnError>false</spotbugs.failOnError>
-    <codingstyle.config.version>1.1.0</codingstyle.config.version>
+    <codingstyle.config.version>1.2.0</codingstyle.config.version>
 
     <!-- Library Dependencies Versions -->
     <error-prone.version>2.4.0</error-prone.version>
@@ -206,6 +207,7 @@
           <testTarget>${java.level}</testTarget>
           <compilerArgs>
             <arg>-Xlint:all</arg>
+            <arg>-XepExcludedPaths:.*/generated-test-sources/.*</arg>
           </compilerArgs>
         </configuration>
       </plugin>
@@ -465,7 +467,8 @@
             <templates>
               <templatesDirectory>${project.basedir}/etc/assertj-templates/</templatesDirectory>
               <assertionsEntryPointClass>assertions_entry_point_class_template.txt</assertionsEntryPointClass>
-              <softEntryPointAssertionClass>soft_assertions_entry_point_class_template.txt</softEntryPointAssertionClass>
+              <softEntryPointAssertionClass>soft_assertions_entry_point_class_template.txt
+              </softEntryPointAssertionClass>
             </templates>
           </configuration>
         </plugin>
@@ -604,6 +607,25 @@
         <revapi.skip>true</revapi.skip>
         <enforcer.skip>true</enforcer.skip>
       </properties>
+    </profile>
+    <profile>
+      <id>benchmark</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <excludes>
+                <exclude>**/*Test.java</exclude>
+              </excludes>
+              <includes>
+                <include>**/*Benchmark.java</include>
+              </includes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
   </profiles>
 
