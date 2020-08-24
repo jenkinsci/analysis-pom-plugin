@@ -1,1 +1,1 @@
-buildPlugin(failFast: false, platforms: ['linux'])
+buildPlugin(failFast: false, tests: [skip: true], platforms: ['linux'])
