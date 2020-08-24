@@ -207,7 +207,6 @@
           <testTarget>${java.level}</testTarget>
           <compilerArgs>
             <arg>-Xlint:all</arg>
-            <arg>-XepExcludedPaths:.*/generated-test-sources/.*</arg>
           </compilerArgs>
         </configuration>
       </plugin>
@@ -333,7 +332,7 @@
           <failOnViolation>false</failOnViolation>
           <configLocation>checkstyle-configuration.xml</configLocation>
           <includeTestSourceDirectory>true</includeTestSourceDirectory>
-          <excludes>**/*Assert*.java,**/InjectedTest.java,**/Messages.java</excludes>
+          <excludes>**/*Assert*.java,**/InjectedTest.java,**/Messages.java,**/*_jmh*</excludes>
         </configuration>
         <dependencies>
           <dependency>
@@ -370,6 +369,7 @@
           </rulesets>
           <excludeRoots>
             <excludeRoot>target/generated-sources/localizer</excludeRoot>
+            <excludeRoot>target/generated-test-sources/test-annotations</excludeRoot>
             <excludeRoot>target/generated-test-sources/assertj-assertions</excludeRoot>
           </excludeRoots>
           <excludes>
@@ -439,6 +439,31 @@
             <classifier>config</classifier>
           </dependency>
         </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco-maven-plugin.version}</version>
+        <configuration>
+          <includes>
+            <include>io/jenkins/plugins/**/*</include>
+          </includes>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+            <phase>process-test-classes</phase>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
     <pluginManagement>
@@ -553,30 +578,6 @@
                   </requireUpperBoundDeps>
                 </rules>
               </configuration>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>${jacoco-maven-plugin.version}</version>
-          <configuration>
-            <includes>
-              <include>io/jenkins/plugins/**/*</include>
-            </includes>
-          </configuration>
-          <executions>
-            <execution>
-              <goals>
-                <goal>prepare-agent</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>report</id>
-              <phase>prepare-package</phase>
-              <goals>
-                <goal>report</goal>
-              </goals>
             </execution>
           </executions>
         </plugin>
