@@ -13,7 +13,7 @@
   <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
-  <version>4.1.0-SNAPSHOT</version>
+  <version>${revision}${changelist}</version>
   <url>https://github.com/jenkinsci/analysis-pom-plugin</url>
   <description>This static analysis POM serves as parent POM for all my Jenkins Plugins. It basically enhances the
     Parent POM for Jenkins Plugins (see https://github.com/jenkinsci/plugin-pom) with a predefined configuration of
@@ -23,6 +23,8 @@
   </description>
 
   <properties>
+    <revision>4.1.0</revision>
+    <changelist>-SNAPSHOT</changelist>
     <jenkins.baseline>2.204</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.6</jenkins.version>
     <java.level>8</java.level>
