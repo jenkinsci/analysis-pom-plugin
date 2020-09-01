@@ -61,6 +61,7 @@
     <revapi-java.version>0.22.0</revapi-java.version>
     <assertj-assertions-generator-maven-plugin.version>2.2.0</assertj-assertions-generator-maven-plugin.version>
     <animal-sniffer-maven-plugin.version>1.18</animal-sniffer-maven-plugin.version>
+    <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
 
   </properties>
 
@@ -202,6 +203,14 @@
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>${maven-release-plugin.version}</version>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
+        </configuration>
+      </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
