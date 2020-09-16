@@ -48,7 +48,7 @@
     <checkstyle.version>8.36</checkstyle.version>
     <spotbugs-maven-plugin.version>4.0.4</spotbugs-maven-plugin.version>
     <findsecbugs-plugin.version>1.10.1</findsecbugs-plugin.version>
-    <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
     <maven-surefire.plugin>3.0.0-M4</maven-surefire.plugin>
     <maven-failsafe.plugin>3.0.0-M4</maven-failsafe.plugin>
     <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
