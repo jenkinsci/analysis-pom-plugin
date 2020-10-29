@@ -45,7 +45,7 @@
     <pmd.version>6.28.0</pmd.version>
     <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
     <checkstyle.version>8.36.2</checkstyle.version>
-    <findsecbugs-plugin.version>1.10.1</findsecbugs-plugin.version>
+    <findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
     <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
     <maven-surefire.plugin>3.0.0-M4</maven-surefire.plugin>
     <maven-failsafe.plugin>3.0.0-M4</maven-failsafe.plugin>
