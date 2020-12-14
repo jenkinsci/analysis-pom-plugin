@@ -42,7 +42,7 @@
 
     <!-- Maven plug-in versions -->
     <maven-pmd-plugin.version>3.14.0</maven-pmd-plugin.version>
-    <pmd.version>6.29.0</pmd.version>
+    <pmd.version>6.30.0</pmd.version>
     <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
     <checkstyle.version>8.37</checkstyle.version>
     <findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
