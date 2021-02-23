@@ -99,18 +99,6 @@
 
   <dependencies>
 
-    <!-- Project Dependencies -->
-    <dependency>
-      <groupId>com.google.errorprone</groupId>
-      <artifactId>error_prone_annotations</artifactId>
-      <version>${error-prone.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.annotation</groupId>
-      <artifactId>javax.annotation-api</artifactId>
-      <version>${javax.annotation-api.version}</version>
-    </dependency>
-
     <!-- Test Dependencies -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -241,7 +229,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire.plugin}</version>
         <configuration>
-          <trimStackTrace>false</trimStackTrace>
+          <trimStackTrace>false</trimStackTrace> <!-- SUREFIRE-1798 -->
           <excludes>
             <exclude>**/*ITest.*</exclude>
             <exclude>**/InjectedTest.*</exclude>
