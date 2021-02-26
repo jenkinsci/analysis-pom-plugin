@@ -12,7 +12,8 @@
   <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
-  <version>4.8.0-SNAPSHOT</version>
+  <version>5.0.0-beta-3-SNAPSHOT</version>
+
   <url>https://github.com/jenkinsci/analysis-pom-plugin</url>
   <description>This static analysis POM serves as parent POM for all my Jenkins Plugins. It basically enhances the
     Parent POM for Jenkins Plugins (see https://github.com/jenkinsci/plugin-pom) with a predefined configuration of
@@ -22,15 +23,11 @@
   </description>
 
   <properties>
-    <jenkins.baseline>2.204</jenkins.baseline>
-    <jenkins.version>${jenkins.baseline}.6</jenkins.version>
+    <jenkins.baseline>2.249</jenkins.baseline>
+    <jenkins.version>${jenkins.baseline}.1</jenkins.version>
     <java.level>8</java.level>
     <spotbugs.failOnError>false</spotbugs.failOnError>
-    <codingstyle.config.version>1.6.0</codingstyle.config.version>
-
-    <!-- Library Dependencies Versions -->
-    <error-prone.version>2.5.1</error-prone.version>
-    <slf4j.version>1.7.30</slf4j.version>
+    <codingstyle.config.version>2.0.6</codingstyle.config.version>
 
     <!-- Test Library Dependencies Versions -->
     <junit.version>5.7.1</junit.version>
@@ -42,7 +39,7 @@
 
     <!-- Maven plug-in versions -->
     <maven-pmd-plugin.version>3.14.0</maven-pmd-plugin.version>
-    <pmd.version>6.29.0</pmd.version>
+    <pmd.version>6.31.0</pmd.version>
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     <checkstyle.version>8.40</checkstyle.version>
     <findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
@@ -88,36 +85,14 @@
         <type>pom</type>
       </dependency>
       <dependency>
-        <groupId>org.hamcrest</groupId>
-        <artifactId>hamcrest-core</artifactId>
-        <version>2.2</version>
-      </dependency>
-      <dependency>
         <groupId>org.ow2.asm</groupId>
         <artifactId>asm</artifactId>
         <version>5.0.4</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.uber.nullaway</groupId>
-        <artifactId>nullaway</artifactId>
-        <version>${nullaway.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
-
-    <!-- Project Dependencies -->
-    <dependency>
-      <groupId>com.google.errorprone</groupId>
-      <artifactId>error_prone_annotations</artifactId>
-      <version>${error-prone.version}</version>
-    </dependency>
 
     <!-- Test Dependencies -->
     <dependency>
@@ -170,13 +145,7 @@
     </dependency>
     <dependency>
       <groupId>com.tngtech.archunit</groupId>
-      <artifactId>archunit-junit5-api</artifactId>
-      <version>${archunit.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.tngtech.archunit</groupId>
-      <artifactId>archunit-junit5-engine</artifactId>
+      <artifactId>archunit-junit5</artifactId>
       <version>${archunit.version}</version>
       <scope>test</scope>
     </dependency>
@@ -255,6 +224,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire.plugin}</version>
         <configuration>
+          <trimStackTrace>false</trimStackTrace> <!-- SUREFIRE-1798 -->
           <excludes>
             <exclude>**/*ITest.*</exclude>
             <exclude>**/InjectedTest.*</exclude>
@@ -361,7 +331,6 @@
             <artifactId>codingstyle</artifactId>
             <version>${codingstyle.config.version}</version>
             <classifier>config</classifier>
-
           </dependency>
         </dependencies>
       </plugin>
@@ -531,35 +500,41 @@
           </dependencies>
           <configuration>
             <analysisConfiguration>
+              <versionFormat>[-0-9.]*</versionFormat>
+              <failBuildOnProblemsFound>true</failBuildOnProblemsFound>
               <revapi.semver.ignore>
                 <enabled>true</enabled>
               </revapi.semver.ignore>
-              <revapi.ignore>
-                <item>
-                  <regex>true</regex>
-                  <code>java.class.nonPublicPartOfAPI</code>
-                  <classQualifiedName>org.jvnet.hudson.*</classQualifiedName>
-                  <justification>Not relevant</justification>
-                </item>
-                <item>
-                  <regex>true</regex>
-                  <code>java.class.nonPublicPartOfAPI</code>
-                  <classQualifiedName>net.sf.json.*</classQualifiedName>
-                  <justification>Not relevant</justification>
-                </item>
-                <item>
-                  <regex>true</regex>
-                  <code>java.class.nonPublicPartOfAPI</code>
-                  <classQualifiedName>hudson.*</classQualifiedName>
-                  <justification>Not relevant</justification>
-                </item>
-                <item>
-                  <regex>true</regex>
-                  <code>java.class.nonPublicPartOfAPI</code>
-                  <classQualifiedName>org.kohsuke.*</classQualifiedName>
-                  <justification>Not relevant</justification>
-                </item>
-              </revapi.ignore>
+              <revapi.differences>
+                <justification>SpotBugs annotations are save to change</justification>
+                <criticality>allowed</criticality>
+                <differences>
+                  <item>
+                    <regex>true</regex>
+                    <code>java.class.nonPublicPartOfAPI</code>
+                    <classQualifiedName>org.jvnet.hudson.*</classQualifiedName>
+                    <justification>Not relevant</justification>
+                  </item>
+                  <item>
+                    <regex>true</regex>
+                    <code>java.class.nonPublicPartOfAPI</code>
+                    <classQualifiedName>net.sf.json.*</classQualifiedName>
+                    <justification>Not relevant</justification>
+                  </item>
+                  <item>
+                    <regex>true</regex>
+                    <code>java.class.nonPublicPartOfAPI</code>
+                    <classQualifiedName>hudson.*</classQualifiedName>
+                    <justification>Not relevant</justification>
+                  </item>
+                  <item>
+                    <regex>true</regex>
+                    <code>java.class.nonPublicPartOfAPI</code>
+                    <classQualifiedName>org.kohsuke.*</classQualifiedName>
+                    <justification>Not relevant</justification>
+                  </item>
+                </differences>
+              </revapi.differences>
             </analysisConfiguration>
           </configuration>
           <executions>
