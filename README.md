@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/jenkinsci/warnings-plugin](https://badges.gitter.im/jenkinsci/warnings-plugin.svg)](https://gitter.im/jenkinsci/warnings-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![ChangeLog](https://img.shields.io/github/release/jenkinsci/analysis-pom-plugin.svg?label=changelog)](https://github.com/jenkinsci/analysis-pom-plugin/releases/latest)
-[![Jenkins Version](https://img.shields.io/badge/Jenkins-2.204.4-green.svg?label=min.%20Jenkins)](https://jenkins.io/download/)
+[![Jenkins Version](https://img.shields.io/badge/Jenkins-2.249.1-green.svg?label=min.%20Jenkins)](https://jenkins.io/download/)
 [![Jenkins](https://ci.jenkins.io/job/Plugins/job/analysis-pom-plugin/job/master/badge/icon?subject=Jenkins%20CI)](https://ci.jenkins.io/job/Plugins/job/analysis-pom-plugin/job/master/)
 [![GitHub Actions](https://github.com/jenkinsci/analysis-pom-plugin/workflows/GitHub%20CI/badge.svg?branch=master)](https://github.com/jenkinsci/analysis-pom-plugin/actions)
 
