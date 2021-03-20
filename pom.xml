@@ -156,6 +156,12 @@
       <artifactId>json-unit-assertj</artifactId>
       <version>${json-unit-fluent.version}</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.ow2.asm</groupId>
+          <artifactId>asm</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
   </dependencies>
