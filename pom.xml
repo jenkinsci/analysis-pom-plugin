@@ -30,6 +30,7 @@
     <codingstyle.config.version>2.1.0</codingstyle.config.version>
 
     <!-- Test Library Dependencies Versions -->
+    <equalsverifier.version>3.5.5</equalsverifier.version>
     <junit.version>5.7.1</junit.version>
     <junit-platform-launcher.version>1.7.1</junit-platform-launcher.version>
     <mockito.version>3.8.0</mockito.version>
@@ -90,6 +91,12 @@
   <dependencies>
 
     <!-- Test Dependencies -->
+    <dependency>
+      <groupId>nl.jqno.equalsverifier</groupId>
+      <artifactId>equalsverifier</artifactId>
+      <version>${equalsverifier.version}</version>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
