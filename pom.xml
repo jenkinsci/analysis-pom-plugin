@@ -39,7 +39,7 @@
     <json-unit-fluent.version>2.28.0</json-unit-fluent.version>
 
     <!-- Maven plug-in versions -->
-    <maven-pmd-plugin.version>3.14.0</maven-pmd-plugin.version>
+    <maven-pmd-plugin.version>3.15.0</maven-pmd-plugin.version>
     <pmd.version>6.38.0</pmd.version>
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     <checkstyle.version>9.0</checkstyle.version>
