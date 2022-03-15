@@ -51,7 +51,7 @@
     <maven-failsafe.plugin>3.0.0-M4</maven-failsafe.plugin>
     <maven-javadoc-plugin.version>3.3.2</maven-javadoc-plugin.version>
     <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-    <maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version>
+    <maven-dependency-plugin.version>3.3.0</maven-dependency-plugin.version>
     <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
     <pitest-maven.plugin>1.7.4</pitest-maven.plugin>
     <pitest-maven.junit5.plugin>0.15</pitest-maven.junit5.plugin>
