@@ -581,7 +581,10 @@
                       <!-- asm dependency from PMD contains a java9 module-info.class -->
                       <ignoreClass>module-info</ignoreClass>
                       <!-- Junit >= 5.3 contains some java9 classes -->
-                      <ignoreClass>**/ModuleUtils*</ignoreClass>
+                      <ignoreClass>*/ModuleUtils*</ignoreClass>
+                      <!-- ArchUnit >= 0.23.0 contains some java9 classes -->
+                      <ignoreClass>com/tngtech/archunit/core/importer/Module*</ignoreClass>
+                      <ignoreClass>com/tngtech/archunit/core/domain/Java9DomainPlugin*</ignoreClass>
                     </ignoreClasses>
                   </enforceBytecodeVersion>
                   <requireUpperBoundDeps>
