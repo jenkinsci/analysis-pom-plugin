@@ -1,1 +1,5 @@
-buildPlugin(failFast: false, tests: [skip: true], platforms: ['linux'])
+def configurations = [
+  [ platform: "linux", jdk: "11" ]
+]
+
+buildPlugin(failFast: false, configurations: configurations)
