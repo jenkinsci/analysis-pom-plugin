@@ -57,6 +57,7 @@
     <pitest-maven.junit5.plugin>0.15</pitest-maven.junit5.plugin>
     <revapi-maven-plugin.version>0.14.6</revapi-maven-plugin.version>
     <revapi-java.version>0.26.1</revapi-java.version>
+    <revapi-reporter-json-version>0.4.5</revapi-reporter-json-version>
     <assertj-assertions-generator-maven-plugin.version>2.2.0</assertj-assertions-generator-maven-plugin.version>
     <animal-sniffer-maven-plugin.version>1.18</animal-sniffer-maven-plugin.version>
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
@@ -520,6 +521,11 @@
               <version>${revapi-java.version}</version>
             </dependency>
             <dependency>
+              <groupId>org.revapi</groupId>
+              <artifactId>revapi-reporter-json</artifactId>
+              <version>${revapi-reporter-json-version}</version>
+            </dependency>
+            <dependency>
               <groupId>io.jenkins.tools</groupId>
               <artifactId>revapi-hpi-extractor</artifactId>
               <version>1.0.1</version>
@@ -528,10 +534,53 @@
           <configuration>
             <analysisConfiguration>
               <versionFormat>[-0-9.]*</versionFormat>
-              <failBuildOnProblemsFound>true</failBuildOnProblemsFound>
-              <revapi.semver.ignore>
+              <failBuildOnProblemsFound>false</failBuildOnProblemsFound>
+              <revapi.versions>
                 <enabled>true</enabled>
-              </revapi.semver.ignore>
+              </revapi.versions>
+              <!-- Exclude of the hudson package not working-->
+              <revapi.filter>
+                <elements>
+                  <include>
+                    <item>
+                      <matcher>java-package</matcher>
+                      <match>com</match>
+                    </item>
+                    <item>
+                      <matcher>java-package</matcher>
+                      <match>edu</match>
+                    </item>
+                    <item>
+                      <matcher>java-package</matcher>
+                      <match>io</match>
+                    </item>
+                    <item>
+                      <matcher>java-package</matcher>
+                      <match>javax</match>
+                    </item>
+                    <item>
+                      <matcher>java-package</matcher>
+                      <match>net</match>
+                    </item>
+                    <item>
+                      <matcher>java-package</matcher>
+                      <match>org.jenkins</match>
+                    </item>
+                    <item>
+                      <matcher>java-package</matcher>
+                      <match>org.jenkins_ci</match>
+                    </item>
+                  </include>
+                </elements>
+              </revapi.filter>
+              <revapi.reporter.json>
+                <minSeverity>NON_BREAKING</minSeverity>
+                <minCriticality>documented</minCriticality>
+                <output>${project.build.outputDirectory}/revapi-result.json</output>
+                <indent>false</indent>
+                <append>false</append>
+                <keepEmptyFile>true</keepEmptyFile>
+              </revapi.reporter.json>
               <revapi.differences>
                 <justification>SpotBugs annotations are save to change</justification>
                 <criticality>allowed</criticality>
@@ -568,7 +617,7 @@
             <execution>
               <id>run-revapi</id>
               <goals>
-                <goal>check</goal>
+                <goal>report</goal>
               </goals>
               <phase>verify</phase>
             </execution>
