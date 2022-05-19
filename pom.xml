@@ -534,7 +534,7 @@
           <configuration>
             <analysisConfiguration>
               <versionFormat>[-0-9.]*</versionFormat>
-              <failBuildOnProblemsFound>false</failBuildOnProblemsFound>
+              <failBuildOnProblemsFound>true</failBuildOnProblemsFound>
               <revapi.versions>
                 <enabled>true</enabled>
               </revapi.versions>
