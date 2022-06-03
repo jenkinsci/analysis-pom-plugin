@@ -478,6 +478,119 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.revapi</groupId>
+        <artifactId>revapi-maven-plugin</artifactId>
+        <version>${revapi-maven-plugin.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.revapi</groupId>
+            <artifactId>revapi-java</artifactId>
+            <version>${revapi-java.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.revapi</groupId>
+            <artifactId>revapi-reporter-json</artifactId>
+            <version>${revapi-reporter-json-version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.jenkins.tools</groupId>
+            <artifactId>revapi-hpi-extractor</artifactId>
+            <version>1.0.1</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <analysisConfiguration>
+            <versionFormat>[-0-9.]*</versionFormat>
+            <failBuildOnProblemsFound>true</failBuildOnProblemsFound>
+            <revapi.versions>
+              <enabled>true</enabled>
+            </revapi.versions>
+            <!-- Exclude of the hudson package not working-->
+            <revapi.filter>
+              <elements>
+                <include>
+                  <item>
+                    <matcher>java-package</matcher>
+                    <match>com</match>
+                  </item>
+                  <item>
+                    <matcher>java-package</matcher>
+                    <match>edu</match>
+                  </item>
+                  <item>
+                    <matcher>java-package</matcher>
+                    <match>io</match>
+                  </item>
+                  <item>
+                    <matcher>java-package</matcher>
+                    <match>javax</match>
+                  </item>
+                  <item>
+                    <matcher>java-package</matcher>
+                    <match>net</match>
+                  </item>
+                  <item>
+                    <matcher>java-package</matcher>
+                    <match>org.jenkins</match>
+                  </item>
+                  <item>
+                    <matcher>java-package</matcher>
+                    <match>org.jenkins_ci</match>
+                  </item>
+                </include>
+              </elements>
+            </revapi.filter>
+            <revapi.reporter.json>
+              <minSeverity>NON_BREAKING</minSeverity>
+              <minCriticality>documented</minCriticality>
+              <output>${project.build.outputDirectory}/revapi-result.json</output>
+              <indent>false</indent>
+              <append>false</append>
+              <keepEmptyFile>true</keepEmptyFile>
+            </revapi.reporter.json>
+            <revapi.differences>
+              <justification>SpotBugs annotations are save to change</justification>
+              <criticality>allowed</criticality>
+              <differences>
+                <item>
+                  <regex>true</regex>
+                  <code>java.class.nonPublicPartOfAPI</code>
+                  <classQualifiedName>org.jvnet.hudson.*</classQualifiedName>
+                  <justification>Not relevant</justification>
+                </item>
+                <item>
+                  <regex>true</regex>
+                  <code>java.class.nonPublicPartOfAPI</code>
+                  <classQualifiedName>net.sf.json.*</classQualifiedName>
+                  <justification>Not relevant</justification>
+                </item>
+                <item>
+                  <regex>true</regex>
+                  <code>java.class.nonPublicPartOfAPI</code>
+                  <classQualifiedName>hudson.*</classQualifiedName>
+                  <justification>Not relevant</justification>
+                </item>
+                <item>
+                  <regex>true</regex>
+                  <code>java.class.nonPublicPartOfAPI</code>
+                  <classQualifiedName>org.kohsuke.*</classQualifiedName>
+                  <justification>Not relevant</justification>
+                </item>
+              </differences>
+            </revapi.differences>
+          </analysisConfiguration>
+        </configuration>
+        <executions>
+          <execution>
+            <id>run-revapi</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>verify</phase>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
     <pluginManagement>
       <plugins>
@@ -509,119 +622,6 @@
               <objectAssertion>has_assertion_template.txt</objectAssertion>
             </templates>
           </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.revapi</groupId>
-          <artifactId>revapi-maven-plugin</artifactId>
-          <version>${revapi-maven-plugin.version}</version>
-          <dependencies>
-            <dependency>
-              <groupId>org.revapi</groupId>
-              <artifactId>revapi-java</artifactId>
-              <version>${revapi-java.version}</version>
-            </dependency>
-            <dependency>
-              <groupId>org.revapi</groupId>
-              <artifactId>revapi-reporter-json</artifactId>
-              <version>${revapi-reporter-json-version}</version>
-            </dependency>
-            <dependency>
-              <groupId>io.jenkins.tools</groupId>
-              <artifactId>revapi-hpi-extractor</artifactId>
-              <version>1.0.1</version>
-            </dependency>
-          </dependencies>
-          <configuration>
-            <analysisConfiguration>
-              <versionFormat>[-0-9.]*</versionFormat>
-              <failBuildOnProblemsFound>true</failBuildOnProblemsFound>
-              <revapi.versions>
-                <enabled>true</enabled>
-              </revapi.versions>
-              <!-- Exclude of the hudson package not working-->
-              <revapi.filter>
-                <elements>
-                  <include>
-                    <item>
-                      <matcher>java-package</matcher>
-                      <match>com</match>
-                    </item>
-                    <item>
-                      <matcher>java-package</matcher>
-                      <match>edu</match>
-                    </item>
-                    <item>
-                      <matcher>java-package</matcher>
-                      <match>io</match>
-                    </item>
-                    <item>
-                      <matcher>java-package</matcher>
-                      <match>javax</match>
-                    </item>
-                    <item>
-                      <matcher>java-package</matcher>
-                      <match>net</match>
-                    </item>
-                    <item>
-                      <matcher>java-package</matcher>
-                      <match>org.jenkins</match>
-                    </item>
-                    <item>
-                      <matcher>java-package</matcher>
-                      <match>org.jenkins_ci</match>
-                    </item>
-                  </include>
-                </elements>
-              </revapi.filter>
-              <revapi.reporter.json>
-                <minSeverity>NON_BREAKING</minSeverity>
-                <minCriticality>documented</minCriticality>
-                <output>${project.build.outputDirectory}/revapi-result.json</output>
-                <indent>false</indent>
-                <append>false</append>
-                <keepEmptyFile>true</keepEmptyFile>
-              </revapi.reporter.json>
-              <revapi.differences>
-                <justification>SpotBugs annotations are save to change</justification>
-                <criticality>allowed</criticality>
-                <differences>
-                  <item>
-                    <regex>true</regex>
-                    <code>java.class.nonPublicPartOfAPI</code>
-                    <classQualifiedName>org.jvnet.hudson.*</classQualifiedName>
-                    <justification>Not relevant</justification>
-                  </item>
-                  <item>
-                    <regex>true</regex>
-                    <code>java.class.nonPublicPartOfAPI</code>
-                    <classQualifiedName>net.sf.json.*</classQualifiedName>
-                    <justification>Not relevant</justification>
-                  </item>
-                  <item>
-                    <regex>true</regex>
-                    <code>java.class.nonPublicPartOfAPI</code>
-                    <classQualifiedName>hudson.*</classQualifiedName>
-                    <justification>Not relevant</justification>
-                  </item>
-                  <item>
-                    <regex>true</regex>
-                    <code>java.class.nonPublicPartOfAPI</code>
-                    <classQualifiedName>org.kohsuke.*</classQualifiedName>
-                    <justification>Not relevant</justification>
-                  </item>
-                </differences>
-              </revapi.differences>
-            </analysisConfiguration>
-          </configuration>
-          <executions>
-            <execution>
-              <id>run-revapi</id>
-              <goals>
-                <goal>report</goal>
-              </goals>
-              <phase>verify</phase>
-            </execution>
-          </executions>
         </plugin>
         <plugin>
           <artifactId>maven-enforcer-plugin</artifactId>
