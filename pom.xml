@@ -336,7 +336,7 @@
         </executions>
         <configuration>
           <linkXRef>false</linkXRef>
-          <failOnViolation>false</failOnViolation>
+          <failOnViolation>true</failOnViolation>
           <configLocation>checkstyle-configuration.xml</configLocation>
           <includeTestSourceDirectory>true</includeTestSourceDirectory>
           <excludes>**/*Assert*.java,**/InjectedTest.java,**/Messages.java,**/*_jmh*</excludes>
