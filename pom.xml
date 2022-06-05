@@ -331,12 +331,14 @@
             <goals>
               <goal>checkstyle</goal>
             </goals>
-            <phase>verify</phase>
+            <phase>validate</phase>
           </execution>
         </executions>
         <configuration>
           <linkXRef>false</linkXRef>
+          <violationSeverity>warning</violationSeverity>
           <failOnViolation>true</failOnViolation>
+          <consoleOutput>true</consoleOutput>
           <configLocation>checkstyle-configuration.xml</configLocation>
           <includeTestSourceDirectory>true</includeTestSourceDirectory>
           <excludes>**/*Assert*.java,**/InjectedTest.java,**/Messages.java,**/*_jmh*</excludes>
