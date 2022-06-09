@@ -543,27 +543,9 @@
               <differences>
                 <item>
                   <regex>true</regex>
-                  <code>java.class.nonPublicPartOfAPI</code>
-                  <classQualifiedName>org.jvnet.hudson.*</classQualifiedName>
-                  <justification>Not relevant</justification>
-                </item>
-                <item>
-                  <regex>true</regex>
-                  <code>java.class.nonPublicPartOfAPI</code>
-                  <classQualifiedName>net.sf.json.*</classQualifiedName>
-                  <justification>Not relevant</justification>
-                </item>
-                <item>
-                  <regex>true</regex>
-                  <code>java.class.nonPublicPartOfAPI</code>
-                  <classQualifiedName>hudson.*</classQualifiedName>
-                  <justification>Not relevant</justification>
-                </item>
-                <item>
-                  <regex>true</regex>
-                  <code>java.class.nonPublicPartOfAPI</code>
-                  <classQualifiedName>org.kohsuke.*</classQualifiedName>
-                  <justification>Not relevant</justification>
+                  <code>java.annotation.*</code>
+                  <annotationType>edu.umd.cs.findbugs.annotations.*</annotationType>
+                  <justification>Annotation should be safe to change</justification>
                 </item>
               </differences>
             </revapi.differences>
