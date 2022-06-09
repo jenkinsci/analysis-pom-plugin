@@ -500,45 +500,33 @@
           </dependency>
         </dependencies>
         <configuration>
+          <versionFormat>[-0-9.]*</versionFormat>
+          <failBuildOnProblemsFound>true</failBuildOnProblemsFound>
           <analysisConfiguration>
-            <versionFormat>[-0-9.]*</versionFormat>
-            <failBuildOnProblemsFound>true</failBuildOnProblemsFound>
             <revapi.versions>
               <enabled>true</enabled>
             </revapi.versions>
             <!-- Exclude of the hudson package not working-->
             <revapi.filter>
               <elements>
-                <include>
+                <exclude>
                   <item>
                     <matcher>java-package</matcher>
-                    <match>com</match>
+                    <match>/org\.jvnet\.hudson(\..*)?/</match>
                   </item>
                   <item>
                     <matcher>java-package</matcher>
-                    <match>edu</match>
+                    <match>/net\.sf\.json(\..*)?/</match>
                   </item>
                   <item>
                     <matcher>java-package</matcher>
-                    <match>io</match>
+                    <match>/hudson(\..*)?/</match>
                   </item>
                   <item>
                     <matcher>java-package</matcher>
-                    <match>javax</match>
+                    <match>/org.kohsuke(\..*)?/</match>
                   </item>
-                  <item>
-                    <matcher>java-package</matcher>
-                    <match>net</match>
-                  </item>
-                  <item>
-                    <matcher>java-package</matcher>
-                    <match>org.jenkins</match>
-                  </item>
-                  <item>
-                    <matcher>java-package</matcher>
-                    <match>org.jenkins_ci</match>
-                  </item>
-                </include>
+                </exclude>
               </elements>
             </revapi.filter>
             <revapi.reporter.json>
@@ -550,7 +538,7 @@
               <keepEmptyFile>true</keepEmptyFile>
             </revapi.reporter.json>
             <revapi.differences>
-              <justification>SpotBugs annotations are save to change</justification>
+              <justification>Not relevant changes that are safe to ignore</justification>
               <criticality>allowed</criticality>
               <differences>
                 <item>
