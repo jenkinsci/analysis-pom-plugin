@@ -27,28 +27,28 @@
     <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <java.level>8</java.level>
     <spotbugs.failOnError>false</spotbugs.failOnError>
-    <codingstyle.config.version>2.23.0</codingstyle.config.version>
+    <codingstyle.config.version>2.24.0</codingstyle.config.version>
 
     <!-- Test Library Dependencies Versions -->
     <equalsverifier.version>3.10</equalsverifier.version>
     <junit.version>5.8.2</junit.version>
     <junit-platform-launcher.version>1.8.2</junit-platform-launcher.version>
-    <mockito.version>4.5.1</mockito.version>
-    <assertj.version>3.22.0</assertj.version>
+    <mockito.version>4.6.1</mockito.version>
+    <assertj.version>3.23.1</assertj.version>
     <archunit.version>0.23.1</archunit.version>
     <json-unit-fluent.version>2.35.0</json-unit-fluent.version>
 
     <!-- Maven plug-in versions -->
     <spotbugs-maven-plugin.version>4.7.0.0</spotbugs-maven-plugin.version>
     <spotbugs.version>4.7.0</spotbugs.version>
-    <pmd.version>6.45.0</pmd.version>
+    <pmd.version>6.46.0</pmd.version>
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
-    <checkstyle.version>10.2</checkstyle.version>
-    <maven-pmd-plugin.version>3.16.0</maven-pmd-plugin.version>
+    <checkstyle.version>10.3</checkstyle.version>
+    <maven-pmd-plugin.version>3.17.0</maven-pmd-plugin.version>
     <findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
     <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
-    <maven-surefire.plugin>3.0.0-M6</maven-surefire.plugin>
-    <maven-failsafe.plugin>3.0.0-M6</maven-failsafe.plugin>
+    <maven-surefire.plugin>3.0.0-M7</maven-surefire.plugin>
+    <maven-failsafe.plugin>3.0.0-M7</maven-failsafe.plugin>
     <maven-javadoc-plugin.version>3.4.0</maven-javadoc-plugin.version>
     <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
     <maven-dependency-plugin.version>3.3.0</maven-dependency-plugin.version>
@@ -84,7 +84,7 @@
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
         <artifactId>bom-${jenkins.baseline}.x</artifactId>
-        <version>1382.v7d694476f340</version>
+        <version>1409.v7659b_c072f18</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
