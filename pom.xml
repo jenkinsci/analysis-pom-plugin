@@ -12,7 +12,7 @@
   <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
-  <version>5.28.0-SNAPSHOT</version>
+  <version>5.27.0-SNAPSHOT</version>
 
   <url>https://github.com/jenkinsci/analysis-pom-plugin</url>
   <description>This static analysis POM serves as parent POM for all my Jenkins Plugins. It basically enhances the
