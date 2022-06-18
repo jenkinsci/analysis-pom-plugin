@@ -506,13 +506,12 @@
             <revapi.versions>
               <enabled>true</enabled>
             </revapi.versions>
-            <!-- Exclude of the hudson package not working-->
             <revapi.filter>
               <elements>
                 <exclude>
                   <item>
                     <matcher>java-package</matcher>
-                    <match>/org\.jvnet\.hudson(\..*)?/</match>
+                    <match>/org\.jvnet(\..*)?/</match>
                   </item>
                   <item>
                     <matcher>java-package</matcher>
