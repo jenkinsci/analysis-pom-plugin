@@ -5,8 +5,8 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>4.40</version>
-    <relativePath/>
+    <version>4.41</version>
+    <relativePath />
   </parent>
 
   <groupId>org.jvnet.hudson.plugins</groupId>
@@ -41,7 +41,7 @@
 
     <!-- Maven plug-in versions -->
     <spotbugs-maven-plugin.version>4.7.0.0</spotbugs-maven-plugin.version>
-    <spotbugs.version>4.7.0</spotbugs.version>
+    <spotbugs.version>4.7.1</spotbugs.version>
     <pmd.version>6.46.0</pmd.version>
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     <checkstyle.version>10.3</checkstyle.version>
@@ -55,7 +55,7 @@
     <maven-dependency-plugin.version>3.3.0</maven-dependency-plugin.version>
     <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
     <pitest-maven.plugin>1.8.1</pitest-maven.plugin>
-    <pitest-maven.junit5.plugin>0.16</pitest-maven.junit5.plugin>
+    <pitest-maven.junit5.plugin>1.0.0</pitest-maven.junit5.plugin>
     <revapi-maven-plugin.version>0.14.6</revapi-maven-plugin.version>
     <revapi-java.version>0.26.1</revapi-java.version>
     <revapi-reporter-json-version>0.4.5</revapi-reporter-json-version>
@@ -85,14 +85,14 @@
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
         <artifactId>bom-${jenkins.baseline}.x</artifactId>
-        <version>1438.v6a_2c29d73f82</version>
+        <version>1461.vb_3c6de28f2b_a_</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
       <dependency>
         <groupId>net.bytebuddy</groupId>
         <artifactId>byte-buddy</artifactId>
-        <version>1.12.10</version>
+        <version>1.12.12</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
