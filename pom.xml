@@ -1,11 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
     <version>4.40</version>
-    <relativePath />
+    <relativePath/>
   </parent>
 
   <groupId>org.jvnet.hudson.plugins</groupId>
@@ -502,7 +503,28 @@
         <configuration>
           <versionFormat>[-0-9.]*</versionFormat>
           <failBuildOnProblemsFound>true</failBuildOnProblemsFound>
+          <pipelineConfiguration>
+            <transformBlocks>
+              <block>
+                <item>manually-vetted</item>
+                <item>revapi.versions</item>
+              </block>
+            </transformBlocks>
+          </pipelineConfiguration>
           <analysisConfiguration>
+            <revapi.differences id="manually-vetted">
+              <attachments>
+                <vetted>ok</vetted>
+              </attachments>
+              <differences>
+                <item>
+                  <regex>true</regex>
+                  <code>java.annotation.*</code>
+                  <annotationType>edu.umd.cs.findbugs.annotations.*</annotationType>
+                  <justification>Annotation should be safe to change</justification>
+                </item>
+              </differences>
+            </revapi.differences>
             <revapi.versions>
               <enabled>true</enabled>
             </revapi.versions>
@@ -536,18 +558,6 @@
               <append>false</append>
               <keepEmptyFile>true</keepEmptyFile>
             </revapi.reporter.json>
-            <revapi.differences>
-              <justification>Not relevant changes that are safe to ignore</justification>
-              <criticality>allowed</criticality>
-              <differences>
-                <item>
-                  <regex>true</regex>
-                  <code>java.annotation.*</code>
-                  <annotationType>edu.umd.cs.findbugs.annotations.*</annotationType>
-                  <justification>Annotation should be safe to change</justification>
-                </item>
-              </differences>
-            </revapi.differences>
           </analysisConfiguration>
         </configuration>
         <executions>
@@ -587,7 +597,8 @@
             <templates>
               <templatesDirectory>${project.basedir}/etc/assertj-templates/</templatesDirectory>
               <assertionsEntryPointClass>assertions_entry_point_class_template.txt</assertionsEntryPointClass>
-              <softEntryPointAssertionClass>soft_assertions_entry_point_class_template.txt</softEntryPointAssertionClass>
+              <softEntryPointAssertionClass>soft_assertions_entry_point_class_template.txt
+              </softEntryPointAssertionClass>
               <objectAssertion>has_assertion_template.txt</objectAssertion>
             </templates>
           </configuration>
