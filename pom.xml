@@ -55,7 +55,7 @@
     <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
     <pitest-maven.plugin>1.8.1</pitest-maven.plugin>
     <pitest-maven.junit5.plugin>1.0.0</pitest-maven.junit5.plugin>
-    <revapi-maven-plugin.version>0.14.6</revapi-maven-plugin.version>
+    <revapi-maven-plugin.version>0.14.7</revapi-maven-plugin.version>
     <revapi-java.version>0.26.1</revapi-java.version>
     <revapi-reporter-json-version>0.4.5</revapi-reporter-json-version>
     <assertj-assertions-generator-maven-plugin.version>2.2.0</assertj-assertions-generator-maven-plugin.version>
