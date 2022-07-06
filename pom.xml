@@ -526,6 +526,7 @@
             </revapi.differences>
             <revapi.versions>
               <enabled>true</enabled>
+              <strictSemver>false</strictSemver>
             </revapi.versions>
             <revapi.filter>
               <elements>
