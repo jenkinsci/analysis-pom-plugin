@@ -39,7 +39,7 @@
     <json-unit-fluent.version>2.35.0</json-unit-fluent.version>
 
     <!-- Maven plug-in versions -->
-    <spotbugs-maven-plugin.version>4.7.0.0</spotbugs-maven-plugin.version>
+    <spotbugs-maven-plugin.version>4.7.1.0</spotbugs-maven-plugin.version>
     <spotbugs.version>4.7.1</spotbugs.version>
     <pmd.version>6.47.0</pmd.version>
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
