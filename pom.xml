@@ -518,6 +518,7 @@
               </attachments>
               <differences>
                 <item>
+                  <ignore>true</ignore>
                   <regex>true</regex>
                   <code>java.annotation.*</code>
                   <annotationType>edu.umd.cs.findbugs.annotations.*</annotationType>
