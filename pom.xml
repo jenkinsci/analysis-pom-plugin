@@ -40,7 +40,7 @@
     <json-unit-fluent.version>2.35.0</json-unit-fluent.version>
 
     <!-- Maven plug-in versions -->
-    <spotbugs-maven-plugin.version>4.7.1.0</spotbugs-maven-plugin.version>
+    <spotbugs-maven-plugin.version>4.7.1.1</spotbugs-maven-plugin.version>
     <spotbugs.version>4.7.1</spotbugs.version>
     <pmd.version>6.47.0</pmd.version>
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
@@ -53,7 +53,7 @@
     <maven-javadoc-plugin.version>3.4.0</maven-javadoc-plugin.version>
     <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
     <maven-dependency-plugin.version>3.3.0</maven-dependency-plugin.version>
-    <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
+    <maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
     <pitest-maven.plugin>1.9.1</pitest-maven.plugin>
     <pitest-maven.junit5.plugin>1.0.0</pitest-maven.junit5.plugin>
     <revapi-maven-plugin.version>0.14.7</revapi-maven-plugin.version>
@@ -92,7 +92,7 @@
       <dependency>
         <groupId>net.bytebuddy</groupId>
         <artifactId>byte-buddy</artifactId>
-        <version>1.12.12</version>
+        <version>1.12.13</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
