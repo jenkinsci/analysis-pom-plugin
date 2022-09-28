@@ -23,7 +23,7 @@
   </description>
 
   <properties>
-    <jenkins.baseline>2.319</jenkins.baseline>
+    <jenkins.baseline>2.346</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
     <codingstyle.config.version>2.25.0</codingstyle.config.version>
