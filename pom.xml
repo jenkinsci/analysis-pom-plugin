@@ -31,7 +31,7 @@
     <!-- Test Library Dependencies Versions -->
     <equalsverifier.version>3.11</equalsverifier.version>
     <junit.version>5.9.1</junit.version>
-    <junit-pioneer.version>1.7.1</junit-pioneer.version>
+    <junit-pioneer.version>1.7.2</junit-pioneer.version>
     <mockito.version>4.8.0</mockito.version>
     <assertj.version>3.23.1</assertj.version>
     <archunit.version>0.23.1</archunit.version>
