@@ -34,7 +34,7 @@
     <junit-pioneer.version>1.9.0</junit-pioneer.version>
     <mockito.version>4.9.0</mockito.version>
     <assertj.version>3.23.1</assertj.version>
-    <archunit.version>1.0.0</archunit.version>
+    <archunit.version>0.23.1</archunit.version>
     <json-unit-fluent.version>2.36.0</json-unit-fluent.version>
 
     <!-- Maven plug-in versions -->
