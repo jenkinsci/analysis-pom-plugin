@@ -29,7 +29,7 @@
     <codingstyle.config.version>2.25.0</codingstyle.config.version>
 
     <!-- Test Library Dependencies Versions -->
-    <equalsverifier.version>3.11.1</equalsverifier.version>
+    <equalsverifier.version>3.12</equalsverifier.version>
     <junit.version>5.9.1</junit.version>
     <junit-pioneer.version>1.9.0</junit-pioneer.version>
     <mockito.version>4.9.0</mockito.version>
