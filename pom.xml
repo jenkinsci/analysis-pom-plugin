@@ -32,7 +32,7 @@
     <equalsverifier.version>3.12.3</equalsverifier.version>
     <junit.version>5.9.1</junit.version>
     <junit-pioneer.version>1.9.1</junit-pioneer.version>
-    <mockito.version>4.9.0</mockito.version>
+    <mockito.version>4.11.0</mockito.version>
     <assertj.version>3.23.1</assertj.version>
     <archunit.version>1.0.1</archunit.version>
     <json-unit-fluent.version>2.36.0</json-unit-fluent.version>
