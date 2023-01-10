@@ -26,7 +26,7 @@
     <jenkins.baseline>2.361</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.4</jenkins.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
-    <codingstyle.config.version>3.8.0</codingstyle.config.version>
+    <codingstyle.config.version>3.10.0</codingstyle.config.version>
 
     <!-- Test Library Dependencies Versions -->
     <equalsverifier.version>3.12.3</equalsverifier.version>
@@ -324,7 +324,11 @@
             <param>io.jenkins.plugins.*</param>
           </targetTests>
           <excludedTestClasses>
+            <param>*Assert</param>
+            <param>*Assertions</param>
+            <param>*ArchitectureTest</param>
             <param>*ITest</param>
+            <param>*jmh_generated*</param>
           </excludedTestClasses>
         </configuration>
       </plugin>
@@ -609,34 +613,6 @@
               <objectAssertion>has_assertion_template.txt</objectAssertion>
             </templates>
           </configuration>
-        </plugin>
-        <plugin>
-          <artifactId>maven-enforcer-plugin</artifactId>
-          <executions>
-            <execution>
-              <id>display-info</id>
-              <configuration>
-                <rules>
-                  <enforceBytecodeVersion>
-                    <ignoreClasses>
-                      <!-- asm dependency from PMD contains a java9 module-info.class -->
-                      <ignoreClass>module-info</ignoreClass>
-                      <!-- Junit >= 5.3 contains some java9 classes -->
-                      <ignoreClass>*/ModuleUtils*</ignoreClass>
-                      <!-- ArchUnit >= 0.23.0 contains some java9 classes -->
-                      <ignoreClass>com/tngtech/archunit/core/importer/Module*</ignoreClass>
-                      <ignoreClass>com/tngtech/archunit/core/domain/Java9DomainPlugin*</ignoreClass>
-                    </ignoreClasses>
-                  </enforceBytecodeVersion>
-                  <requireUpperBoundDeps>
-                    <excludes combine.children="append">
-                      <exclude>org.slf4j:slf4j-api</exclude>
-                    </excludes>
-                  </requireUpperBoundDeps>
-                </rules>
-              </configuration>
-            </execution>
-          </executions>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
