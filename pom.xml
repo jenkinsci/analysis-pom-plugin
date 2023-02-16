@@ -33,7 +33,7 @@
     <junit.version>5.9.2</junit.version>
     <junit-pioneer.version>1.9.1</junit-pioneer.version>
     <mockito.version>5.1.1</mockito.version>
-    <assertj.version>3.24.1</assertj.version>
+    <assertj.version>3.24.2</assertj.version>
     <archunit.version>1.0.1</archunit.version>
     <json-unit-fluent.version>2.36.0</json-unit-fluent.version>
 
