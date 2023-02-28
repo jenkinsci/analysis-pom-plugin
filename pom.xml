@@ -35,7 +35,7 @@
     <mockito.version>5.1.1</mockito.version>
     <assertj.version>3.24.1</assertj.version>
     <archunit.version>1.0.1</archunit.version>
-    <json-unit-fluent.version>2.36.0</json-unit-fluent.version>
+    <json-unit-fluent.version>2.36.1</json-unit-fluent.version>
 
     <!-- Maven plug-in versions -->
     <spotbugs-maven-plugin.version>4.7.3.0</spotbugs-maven-plugin.version>
