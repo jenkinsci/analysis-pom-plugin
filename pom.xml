@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>4.54</version>
+    <version>4.55</version>
     <relativePath />
   </parent>
 
@@ -29,30 +29,30 @@
     <codingstyle.config.version>3.10.0</codingstyle.config.version>
 
     <!-- Test Library Dependencies Versions -->
-    <equalsverifier.version>3.12.3</equalsverifier.version>
+    <equalsverifier.version>3.14</equalsverifier.version>
     <junit.version>5.9.2</junit.version>
-    <junit-pioneer.version>1.9.1</junit-pioneer.version>
+    <junit-pioneer.version>2.0.0</junit-pioneer.version>
     <mockito.version>5.1.1</mockito.version>
-    <assertj.version>3.24.1</assertj.version>
+    <assertj.version>3.24.2</assertj.version>
     <archunit.version>1.0.1</archunit.version>
-    <json-unit-fluent.version>2.36.0</json-unit-fluent.version>
+    <json-unit-fluent.version>2.36.1</json-unit-fluent.version>
 
     <!-- Maven plug-in versions -->
     <spotbugs-maven-plugin.version>4.7.3.0</spotbugs-maven-plugin.version>
     <spotbugs.version>4.7.3</spotbugs.version>
-    <pmd.version>6.53.0</pmd.version>
+    <pmd.version>6.54.0</pmd.version>
     <maven-checkstyle-plugin.version>3.2.1</maven-checkstyle-plugin.version>
-    <checkstyle.version>10.6.0</checkstyle.version>
+    <checkstyle.version>10.8.0</checkstyle.version>
     <maven-pmd-plugin.version>3.20.0</maven-pmd-plugin.version>
     <findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
     <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     <maven-surefire.plugin>3.0.0-M9</maven-surefire.plugin>
-    <maven-failsafe.plugin>3.0.0-M7</maven-failsafe.plugin>
+    <maven-failsafe.plugin>3.0.0-M9</maven-failsafe.plugin>
     <maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
     <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
     <maven-dependency-plugin.version>3.5.0</maven-dependency-plugin.version>
     <maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
-    <pitest-maven.plugin>1.10.4</pitest-maven.plugin>
+    <pitest-maven.plugin>1.11.3</pitest-maven.plugin>
     <pitest-maven.junit5.plugin>1.1.2</pitest-maven.junit5.plugin>
     <revapi-maven-plugin.version>0.15.0</revapi-maven-plugin.version>
     <revapi-java.version>0.28.0</revapi-java.version>
@@ -83,7 +83,7 @@
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
         <artifactId>bom-${jenkins.baseline}.x</artifactId>
-        <version>1775.vf0577a_a_01778</version>
+        <version>1836.vfe602c266c05</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
