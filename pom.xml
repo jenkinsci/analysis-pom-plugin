@@ -26,7 +26,7 @@
     <jenkins.baseline>2.387</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.1</jenkins.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
-    <codingstyle.config.version>3.12.0</codingstyle.config.version>
+    <codingstyle.config.version>3.13.0</codingstyle.config.version>
 
     <!-- Test Library Dependencies Versions -->
     <equalsverifier.version>3.14</equalsverifier.version>
