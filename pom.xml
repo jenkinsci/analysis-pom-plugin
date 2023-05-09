@@ -32,7 +32,7 @@
     <equalsverifier.version>3.14.1</equalsverifier.version>
     <junit.version>5.9.3</junit.version>
     <junit-pioneer.version>2.0.1</junit-pioneer.version>
-    <mockito.version>5.2.0</mockito.version>
+    <mockito.version>5.3.1</mockito.version>
     <assertj.version>3.24.2</assertj.version>
     <archunit.version>1.0.1</archunit.version>
     <json-unit-fluent.version>2.37.0</json-unit-fluent.version>
@@ -161,11 +161,6 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-inline</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
