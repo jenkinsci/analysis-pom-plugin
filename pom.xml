@@ -24,7 +24,7 @@
 
   <properties>
     <jenkins.baseline>2.387</jenkins.baseline>
-    <jenkins.version>${jenkins.baseline}.1</jenkins.version>
+    <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
     <codingstyle.config.version>3.17.0</codingstyle.config.version>
 
