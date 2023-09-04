@@ -30,36 +30,24 @@
 
     <!-- Test Library Dependencies Versions -->
     <equalsverifier.version>3.15.1</equalsverifier.version>
-    <junit.version>5.10.0</junit.version>
     <junit-pioneer.version>2.0.1</junit-pioneer.version>
-    <mockito.version>5.4.0</mockito.version>
     <assertj.version>3.24.2</assertj.version>
     <archunit.version>1.1.0</archunit.version>
     <json-unit-fluent.version>2.38.0</json-unit-fluent.version>
 
     <!-- Maven plug-in versions -->
-    <spotbugs-maven-plugin.version>4.7.3.5</spotbugs-maven-plugin.version>
     <spotbugs.version>4.7.3</spotbugs.version>
     <pmd.version>6.55.0</pmd.version>
     <maven-checkstyle-plugin.version>3.3.0</maven-checkstyle-plugin.version>
     <checkstyle.version>10.12.3</checkstyle.version>
     <maven-pmd-plugin.version>3.21.0</maven-pmd-plugin.version>
     <findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
-    <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
-    <maven-surefire.plugin>3.1.2</maven-surefire.plugin>
-    <maven-failsafe.plugin>3.1.2</maven-failsafe.plugin>
-    <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
-    <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-    <maven-dependency-plugin.version>3.6.0</maven-dependency-plugin.version>
-    <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
     <pitest-maven.plugin>1.14.4</pitest-maven.plugin>
     <pitest-maven.junit5.plugin>1.2.0</pitest-maven.junit5.plugin>
     <revapi-maven-plugin.version>0.15.0</revapi-maven-plugin.version>
     <revapi-java.version>0.28.1</revapi-java.version>
     <revapi-reporter-json-version>0.5.0</revapi-reporter-json-version>
     <assertj-assertions-generator-maven-plugin.version>2.2.0</assertj-assertions-generator-maven-plugin.version>
-    <animal-sniffer-maven-plugin.version>1.18</animal-sniffer-maven-plugin.version>
-    <maven-release-plugin.version>3.0.1</maven-release-plugin.version>
 
   </properties>
 
@@ -86,20 +74,6 @@
         <version>2401.v7a_d68f8d0b_09</version>
         <scope>import</scope>
         <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.junit</groupId>
-        <artifactId>junit-bom</artifactId>
-        <version>${junit.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.mockito</groupId>
-        <artifactId>mockito-bom</artifactId>
-        <version>${mockito.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>net.bytebuddy</groupId>
@@ -193,6 +167,7 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
           <execution>
@@ -210,12 +185,12 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>${maven-release-plugin.version}</version>
         <configuration>
           <tagNameFormat>v@{project.version}</tagNameFormat>
         </configuration>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <compilerArgs>
@@ -249,8 +224,8 @@
         </executions>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>${maven-surefire.plugin}</version>
         <configuration>
           <trimStackTrace>false</trimStackTrace> <!-- SUREFIRE-1798 -->
           <excludes>
@@ -267,8 +242,9 @@
         </dependencies>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
-        <version>${maven-failsafe.plugin}</version>
+        <version>${maven-surefire-plugin.version}</version>
         <configuration>
           <includes>
             <include>**/*ITest.*</include>
@@ -286,8 +262,8 @@
         </executions>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${maven-javadoc-plugin.version}</version>
         <configuration>
           <additionalOptions>-Xdoclint:all</additionalOptions>
           <failOnWarnings>false</failOnWarnings>
@@ -418,7 +394,6 @@
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>${spotbugs-maven-plugin.version}</version>
         <executions>
           <execution>
             <id>run-spotbugs</id>
@@ -466,7 +441,6 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>${jacoco-maven-plugin.version}</version>
         <configuration>
           <includes>
             <include>io/jenkins/plugins/**/*</include>
