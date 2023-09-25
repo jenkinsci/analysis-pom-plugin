@@ -33,7 +33,7 @@
     <npm.version>9.8.1</npm.version>
 
     <!-- Test Library Dependencies Versions -->
-    <equalsverifier.version>3.15.1</equalsverifier.version>
+    <equalsverifier.version>3.15.2</equalsverifier.version>
     <junit-pioneer.version>2.1.0</junit-pioneer.version>
     <assertj.version>3.24.2</assertj.version>
     <archunit.version>1.1.0</archunit.version>
