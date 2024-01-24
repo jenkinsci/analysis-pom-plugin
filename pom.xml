@@ -24,7 +24,7 @@
 
   <properties>
     <jenkins.baseline>2.426</jenkins.baseline>
-    <jenkins.version>${jenkins.baseline}.2</jenkins.version>
+    <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
     <codingstyle.config.version>3.32.0</codingstyle.config.version>
 
@@ -52,6 +52,8 @@
     <revapi-java.version>0.28.1</revapi-java.version>
     <revapi-reporter-json-version>0.5.0</revapi-reporter-json-version>
     <assertj-assertions-generator-maven-plugin.version>2.2.0</assertj-assertions-generator-maven-plugin.version>
+
+    <jenkins-test-harness.version>2152.v60323ca_97732</jenkins-test-harness.version>
   </properties>
 
   <licenses>
@@ -74,7 +76,7 @@
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
         <artifactId>bom-${jenkins.baseline}.x</artifactId>
-        <version>2718.v7e8a_d43b_3f0b_</version>
+        <version>2746.vb_79a_1d3e7b_c8</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
