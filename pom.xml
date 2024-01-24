@@ -26,7 +26,10 @@
     <jenkins.baseline>2.426</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
-    <codingstyle.config.version>3.40.0</codingstyle.config.version>
+    <codingstyle.config.version>3.41.0</codingstyle.config.version>
+
+    <!-- Temporary bugfix to include https://github.com/jenkinsci/jenkins-test-harness/pull/717 -->
+    <jenkins-test-harness.version>2152.v60323ca_97732</jenkins-test-harness.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>20.11.0</node.version>
@@ -52,8 +55,7 @@
     <revapi-java.version>0.28.1</revapi-java.version>
     <revapi-reporter-json-version>0.5.0</revapi-reporter-json-version>
     <assertj-assertions-generator-maven-plugin.version>2.2.0</assertj-assertions-generator-maven-plugin.version>
-
-    <jenkins-test-harness.version>2152.v60323ca_97732</jenkins-test-harness.version>
+    <depgraph-maven-plugin.version>4.0.3</depgraph-maven-plugin.version>
   </properties>
 
   <licenses>
@@ -648,6 +650,36 @@
                 <id>test</id>
                 <goals>
                   <goal>mutationCoverage</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>depgraph</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.ferstl</groupId>
+            <artifactId>depgraph-maven-plugin</artifactId>
+            <version>${depgraph-maven-plugin.version}</version>
+            <configuration>
+              <graphFormat>puml</graphFormat>
+              <classpathScope>compile</classpathScope>
+              <showClassifiers>true</showClassifiers>
+              <showVersions>true</showVersions>
+              <showConflicts>true</showConflicts>
+              <showDuplicates>true</showDuplicates>
+              <outputFileName>dependency-graph</outputFileName>
+              <outputDirectory>${project.basedir}/doc</outputDirectory>
+            </configuration>
+            <executions>
+              <execution>
+                <phase>verify</phase>
+                <goals>
+                  <goal>graph</goal>
                 </goals>
               </execution>
             </executions>
