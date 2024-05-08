@@ -2,6 +2,7 @@ node
 node_modules
 target
 *.iml
+*.bak
 .classpath
 .project
 .settings
