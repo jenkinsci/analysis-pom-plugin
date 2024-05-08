@@ -26,7 +26,7 @@
     <jenkins.baseline>2.426</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
-    <codingstyle.config.version>4.7.0</codingstyle.config.version>
+    <codingstyle.config.version>4.9.0</codingstyle.config.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>20.11.0</node.version>
