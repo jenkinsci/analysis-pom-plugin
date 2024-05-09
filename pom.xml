@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
@@ -5,28 +6,51 @@
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
     <version>4.82</version>
-    <relativePath />
+    <relativePath></relativePath>
   </parent>
 
   <groupId>org.jvnet.hudson.plugins</groupId>
   <artifactId>analysis-pom</artifactId>
+  <version>8.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
-  <version>8.1.0-SNAPSHOT</version>
-
-  <url>https://github.com/jenkinsci/analysis-pom-plugin</url>
   <description>This static analysis POM serves as parent POM for all my Jenkins Plugins. It basically enhances the
     Parent POM for Jenkins Plugins (see https://github.com/jenkinsci/plugin-pom) with a predefined configuration of
     several static analysis tools. Additionally, it provides a fix set of test dependencies that are common
     to all my plugins. This POM enforces the Java style guide (see https://github.com/uhafner/codingstyle) that I am
-    using in these plugins (and in my lectures at the Munich University of Applied Sciences).
-  </description>
+    using in these plugins (and in my lectures at the Munich University of Applied Sciences).</description>
+
+  <url>https://github.com/jenkinsci/analysis-pom-plugin</url>
+
+  <licenses>
+    <license>
+      <name>MIT license</name>
+      <comments>All source code is under the MIT license.</comments>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>uhafner</id>
+      <name>Ullrich Hafner</name>
+      <email>ullrich.hafner@gmail.com</email>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:https://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
+    <tag>${scmTag}</tag>
+    <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
+  </scm>
 
   <properties>
     <jenkins.baseline>2.426</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
     <codingstyle.config.version>4.10.0</codingstyle.config.version>
+
+    <pmd.skip>false</pmd.skip>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>20.11.0</node.version>
@@ -53,22 +77,8 @@
     <revapi-reporter-json-version>0.5.0</revapi-reporter-json-version>
     <assertj-assertions-generator-maven-plugin.version>2.2.0</assertj-assertions-generator-maven-plugin.version>
     <depgraph-maven-plugin.version>4.0.3</depgraph-maven-plugin.version>
+    <sortpom-maven-plugin.version>3.4.1</sortpom-maven-plugin.version>
   </properties>
-
-  <licenses>
-    <license>
-      <name>MIT license</name>
-      <comments>All source code is under the MIT license.</comments>
-    </license>
-  </licenses>
-
-  <developers>
-    <developer>
-      <name>Ullrich Hafner</name>
-      <id>uhafner</id>
-      <email>ullrich.hafner@gmail.com</email>
-    </developer>
-  </developers>
 
   <dependencyManagement>
     <dependencies>
@@ -76,8 +86,8 @@
         <groupId>io.jenkins.tools.bom</groupId>
         <artifactId>bom-${jenkins.baseline}.x</artifactId>
         <version>3023.v02a_987a_b_3ff9</version>
-        <scope>import</scope>
         <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>net.bytebuddy</groupId>
@@ -183,7 +193,69 @@
 
   </dependencies>
 
+  <repositories>
+    <repository>
+      <id>repo.jenkins-ci.org</id>
+      <url>https://repo.jenkins-ci.org/public/</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>repo.jenkins-ci.org</id>
+      <url>https://repo.jenkins-ci.org/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
+
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.assertj</groupId>
+          <artifactId>assertj-assertions-generator-maven-plugin</artifactId>
+          <version>${assertj-assertions-generator-maven-plugin.version}</version>
+          <configuration>
+            <excludes>
+              <exclude>.*ITest</exclude>
+              <exclude>.*Action</exclude>
+            </excludes>
+            <cleanTargetDir>true</cleanTargetDir>
+            <hierarchical>false</hierarchical>
+            <generateBddAssertions>false</generateBddAssertions>
+            <generateJUnitSoftAssertions>false</generateJUnitSoftAssertions>
+            <quiet>true</quiet>
+            <templates>
+              <templatesDirectory>${project.basedir}/etc/assertj-templates/</templatesDirectory>
+              <assertionsEntryPointClass>assertions_entry_point_class_template.txt</assertionsEntryPointClass>
+              <softEntryPointAssertionClass>soft_assertions_entry_point_class_template.txt</softEntryPointAssertionClass>
+              <objectAssertion>has_assertion_template.txt</objectAssertion>
+            </templates>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>generate-assertions</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${maven-dependency-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${maven-resources-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>com.github.ekryd.sortpom</groupId>
+          <artifactId>sortpom-maven-plugin</artifactId>
+          <version>${sortpom-maven-plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -246,7 +318,8 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
-          <trimStackTrace>false</trimStackTrace> <!-- SUREFIRE-1798 -->
+          <trimStackTrace>false</trimStackTrace>
+          <!-- SUREFIRE-1798 -->
           <excludes>
             <exclude>**/*ITest.*</exclude>
             <exclude>**/InjectedTest.*</exclude>
@@ -302,13 +375,6 @@
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
         <version>${pitest-maven.plugin}</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.pitest</groupId>
-            <artifactId>pitest-junit5-plugin</artifactId>
-            <version>${pitest-maven.junit5.plugin}</version>
-          </dependency>
-        </dependencies>
         <configuration>
           <outputFormats>XML,HTML</outputFormats>
           <verbose>true</verbose>
@@ -326,6 +392,113 @@
             <param>*jmh_generated*</param>
           </excludedTestClasses>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>${pitest-maven.junit5.plugin}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>${maven-pmd-plugin.version}</version>
+        <configuration>
+          <linkXRef>false</linkXRef>
+          <targetJdk>${java.version}</targetJdk>
+          <skip>true</skip>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>net.sourceforge.pmd</groupId>
+            <artifactId>pmd-core</artifactId>
+            <version>${pmd.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>net.sourceforge.pmd</groupId>
+            <artifactId>pmd-java</artifactId>
+            <version>${pmd.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>net.sourceforge.pmd</groupId>
+            <artifactId>pmd-javascript</artifactId>
+            <version>${pmd.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>edu.hm.hafner</groupId>
+            <artifactId>codingstyle</artifactId>
+            <version>${codingstyle.config.version}</version>
+            <classifier>config</classifier>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>run-pmd-java</id>
+            <goals>
+              <goal>pmd</goal>
+              <goal>check</goal>
+              <goal>cpd</goal>
+            </goals>
+            <phase>verify</phase>
+            <configuration>
+              <targetDirectory>${project.build.directory}/pmd-java</targetDirectory>
+              <rulesets>
+                <ruleset>pmd-java-configuration.xml</ruleset>
+              </rulesets>
+              <includeTests>false</includeTests>
+              <minimumTokens>50</minimumTokens>
+              <skip>${pmd.skip}</skip>
+            </configuration>
+          </execution>
+          <execution>
+            <id>run-pmd-tests</id>
+            <goals>
+              <goal>pmd</goal>
+              <goal>check</goal>
+              <goal>cpd</goal>
+            </goals>
+            <phase>verify</phase>
+            <configuration>
+              <targetDirectory>${project.build.directory}/pmd-tests</targetDirectory>
+              <rulesets>
+                <ruleset>pmd-tests-configuration.xml</ruleset>
+              </rulesets>
+              <includeTests>true</includeTests>
+              <minimumTokens>100</minimumTokens>
+              <excludeRoots>
+                <excludeRoot>src/main/java</excludeRoot>
+                <excludeRoot>${project.build.directory}/generated-test-sources/test-annotations</excludeRoot>
+                <excludeRoot>${project.build.directory}/generated-test-sources/assertj-assertions</excludeRoot>
+              </excludeRoots>
+              <skip>${pmd.skip}</skip>
+            </configuration>
+          </execution>
+          <execution>
+            <id>run-pmd-javascript</id>
+            <goals>
+              <goal>pmd</goal>
+              <goal>check</goal>
+            </goals>
+            <phase>verify</phase>
+            <configuration>
+              <targetDirectory>${project.build.directory}/pmd-javascript</targetDirectory>
+              <rulesets>
+                <ruleset>pmd-javascript-configuration.xml</ruleset>
+              </rulesets>
+              <includeTests>false</includeTests>
+              <language>javascript</language>
+              <compileSourceRoots>
+                <compileSourceRoot>${basedir}/src/main/resources</compileSourceRoot>
+                <compileSourceRoot>${basedir}/src/main/webapp/js</compileSourceRoot>
+              </compileSourceRoots>
+              <includes>
+                <include>**/*.js</include>
+              </includes>
+              <skip>${pmd.skip}</skip>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -375,104 +548,7 @@
               <includeTestSourceDirectory>true</includeTestSourceDirectory>
               <configLocation>checkstyle-tests-configuration.xml</configLocation>
               <outputFile>${project.build.directory}/checkstyle-tests/checkstyle-result.xml</outputFile>
-              <sourceDirectories></sourceDirectories>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-pmd-plugin</artifactId>
-        <version>${maven-pmd-plugin.version}</version>
-        <configuration>
-          <linkXRef>false</linkXRef>
-          <failOnViolation>false</failOnViolation>
-          <targetJdk>${java.version}</targetJdk>
-        </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>net.sourceforge.pmd</groupId>
-            <artifactId>pmd-core</artifactId>
-            <version>${pmd.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>net.sourceforge.pmd</groupId>
-            <artifactId>pmd-java</artifactId>
-            <version>${pmd.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>net.sourceforge.pmd</groupId>
-            <artifactId>pmd-javascript</artifactId>
-            <version>${pmd.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>edu.hm.hafner</groupId>
-            <artifactId>codingstyle</artifactId>
-            <version>${codingstyle.config.version}</version>
-            <classifier>config</classifier>
-          </dependency>
-        </dependencies>
-        <executions>
-          <execution>
-            <id>run-pmd-java</id>
-            <goals>
-              <goal>pmd</goal>
-              <goal>check</goal>
-              <goal>cpd</goal>
-            </goals>
-            <phase>verify</phase>
-            <configuration>
-              <targetDirectory>${project.build.directory}/pmd-java</targetDirectory>
-              <rulesets>
-                <ruleset>pmd-java-configuration.xml</ruleset>
-              </rulesets>
-              <includeTests>false</includeTests>
-              <minimumTokens>50</minimumTokens>
-            </configuration>
-          </execution>
-          <execution>
-            <id>run-pmd-tests</id>
-            <goals>
-              <goal>pmd</goal>
-              <goal>check</goal>
-              <goal>cpd</goal>
-            </goals>
-            <phase>verify</phase>
-            <configuration>
-              <targetDirectory>${project.build.directory}/pmd-tests</targetDirectory>
-              <rulesets>
-                <ruleset>pmd-tests-configuration.xml</ruleset>
-              </rulesets>
-              <includeTests>true</includeTests>
-              <minimumTokens>100</minimumTokens>
-              <excludeRoots>
-                <excludeRoot>src/main/java</excludeRoot>
-                <excludeRoot>${project.build.directory}/generated-test-sources/test-annotations</excludeRoot>
-                <excludeRoot>${project.build.directory}/generated-test-sources/assertj-assertions</excludeRoot>
-              </excludeRoots>
-            </configuration>
-          </execution>
-          <execution>
-            <id>run-pmd-javascript</id>
-            <goals>
-              <goal>pmd</goal>
-              <goal>check</goal>
-            </goals>
-            <phase>verify</phase>
-            <configuration>
-              <targetDirectory>${project.build.directory}/pmd-javascript</targetDirectory>
-              <rulesets>
-                <ruleset>pmd-javascript-configuration.xml</ruleset>
-              </rulesets>
-              <includeTests>false</includeTests>
-              <language>javascript</language>
-              <compileSourceRoots>
-                <compileSourceRoot>${basedir}/src/main/resources</compileSourceRoot>
-                <compileSourceRoot>${basedir}/src/main/webapp/js</compileSourceRoot>
-              </compileSourceRoots>
-              <includes>
-                <include>**/*.js</include>
-              </includes>
+              <sourceDirectories />
             </configuration>
           </execution>
         </executions>
@@ -480,23 +556,10 @@
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>run-spotbugs</id>
-            <goals>
-              <goal>spotbugs</goal>
-            </goals>
-            <phase>verify</phase>
-          </execution>
-          <execution>
-            <id>spotbugs</id>
-            <phase>none</phase>
-          </execution>
-        </executions>
         <configuration>
-          <failOnError>false</failOnError>
           <xmlOutput>true</xmlOutput>
           <threshold>Low</threshold>
+          <failThreshold>Low</failThreshold>
           <effort>Max</effort>
           <relaxed>false</relaxed>
           <fork>true</fork>
@@ -523,6 +586,15 @@
             <version>${spotbugs.version}</version>
           </dependency>
         </dependencies>
+        <executions>
+          <execution>
+            <id>run-spotbugs</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>verify</phase>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.jacoco</groupId>
@@ -541,10 +613,10 @@
           </execution>
           <execution>
             <id>report</id>
-            <phase>verify</phase>
             <goals>
               <goal>report</goal>
             </goals>
+            <phase>verify</phase>
           </execution>
         </executions>
       </plugin>
@@ -552,23 +624,6 @@
         <groupId>org.revapi</groupId>
         <artifactId>revapi-maven-plugin</artifactId>
         <version>${revapi-maven-plugin.version}</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.revapi</groupId>
-            <artifactId>revapi-java</artifactId>
-            <version>${revapi-java.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>org.revapi</groupId>
-            <artifactId>revapi-reporter-json</artifactId>
-            <version>${revapi-reporter-json-version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.jenkins.tools</groupId>
-            <artifactId>revapi-hpi-extractor</artifactId>
-            <version>1.0.1</version>
-          </dependency>
-        </dependencies>
         <configuration>
           <versionFormat>[-0-9.]*</versionFormat>
           <failBuildOnProblemsFound>true</failBuildOnProblemsFound>
@@ -631,6 +686,23 @@
             </revapi.reporter.json>
           </analysisConfiguration>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.revapi</groupId>
+            <artifactId>revapi-java</artifactId>
+            <version>${revapi-java.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.revapi</groupId>
+            <artifactId>revapi-reporter-json</artifactId>
+            <version>${revapi-reporter-json-version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.jenkins.tools</groupId>
+            <artifactId>revapi-hpi-extractor</artifactId>
+            <version>1.0.1</version>
+          </dependency>
+        </dependencies>
         <executions>
           <execution>
             <id>run-revapi</id>
@@ -642,50 +714,6 @@
         </executions>
       </plugin>
     </plugins>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.assertj</groupId>
-          <artifactId>assertj-assertions-generator-maven-plugin</artifactId>
-          <version>${assertj-assertions-generator-maven-plugin.version}</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>generate-assertions</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <excludes>
-              <exclude>.*ITest</exclude>
-              <exclude>.*Action</exclude>
-            </excludes>
-            <cleanTargetDir>true</cleanTargetDir>
-            <hierarchical>false</hierarchical>
-            <generateBddAssertions>false</generateBddAssertions>
-            <generateJUnitSoftAssertions>false</generateJUnitSoftAssertions>
-            <quiet>true</quiet>
-            <templates>
-              <templatesDirectory>${project.basedir}/etc/assertj-templates/</templatesDirectory>
-              <assertionsEntryPointClass>assertions_entry_point_class_template.txt</assertionsEntryPointClass>
-              <softEntryPointAssertionClass>soft_assertions_entry_point_class_template.txt
-              </softEntryPointAssertionClass>
-              <objectAssertion>has_assertion_template.txt</objectAssertion>
-            </templates>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-dependency-plugin</artifactId>
-          <version>${maven-dependency-plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>${maven-resources-plugin.version}</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 
   <profiles>
@@ -700,6 +728,15 @@
         <skipITs>true</skipITs>
         <revapi.skip>true</revapi.skip>
         <enforcer.skip>true</enforcer.skip>
+      </properties>
+    </profile>
+    <profile>
+      <id>ci</id>
+      <properties>
+        <maven.test.failure.ignore>true</maven.test.failure.ignore>
+        <checkstyle.failOnViolation>false</checkstyle.failOnViolation>
+        <pmd.failOnViolation>false</pmd.failOnViolation>
+        <spotbugs.failOnError>false</spotbugs.failOnError>
       </properties>
     </profile>
     <profile>
@@ -741,10 +778,10 @@
             </configuration>
             <executions>
               <execution>
-                <phase>verify</phase>
                 <goals>
                   <goal>graph</goal>
                 </goals>
+                <phase>verify</phase>
               </execution>
             </executions>
           </plugin>
@@ -772,26 +809,4 @@
     </profile>
   </profiles>
 
-  <scm>
-    <connection>scm:git:https://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
-    <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
-    <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
-    <tag>${scmTag}</tag>
-  </scm>
-
-  <repositories>
-    <repository>
-      <id>repo.jenkins-ci.org</id>
-      <url>https://repo.jenkins-ci.org/public/</url>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>repo.jenkins-ci.org</id>
-      <url>https://repo.jenkins-ci.org/public/</url>
-    </pluginRepository>
-  </pluginRepositories>
-
 </project>
-
