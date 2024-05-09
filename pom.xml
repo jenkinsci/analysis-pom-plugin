@@ -6,12 +6,12 @@
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
     <version>4.82</version>
-    <relativePath></relativePath>
+    <relativePath />
   </parent>
 
   <groupId>org.jvnet.hudson.plugins</groupId>
   <artifactId>analysis-pom</artifactId>
-  <version>8.1.0-SNAPSHOT</version>
+  <version>8.1.0</version>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
   <description>This static analysis POM serves as parent POM for all my Jenkins Plugins. It basically enhances the
@@ -40,7 +40,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
-    <tag>${scmTag}</tag>
+    <tag>v8.1.0</tag>
     <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
   </scm>
 
