@@ -256,6 +256,11 @@
           <groupId>com.github.ekryd.sortpom</groupId>
           <artifactId>sortpom-maven-plugin</artifactId>
           <version>${sortpom-maven-plugin.version}</version>
+          <configuration>
+            <expandEmptyElements>false</expandEmptyElements>
+            <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
+            <createBackupFile>false</createBackupFile>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -493,8 +498,8 @@
               <includeTests>false</includeTests>
               <language>javascript</language>
               <compileSourceRoots>
-                <compileSourceRoot>${basedir}/src/main/resources</compileSourceRoot>
-                <compileSourceRoot>${basedir}/src/main/webapp/js</compileSourceRoot>
+                <compileSourceRoot>src/main/resources</compileSourceRoot>
+                <compileSourceRoot>src/main/webapp/js</compileSourceRoot>
               </compileSourceRoots>
               <includes>
                 <include>**/*.js</include>
@@ -592,7 +597,7 @@
         </dependencies>
         <executions>
           <execution>
-            <id>run-spotbugs</id>
+            <id>spotbugs</id>
             <goals>
               <goal>check</goal>
             </goals>
@@ -736,11 +741,18 @@
     </profile>
     <profile>
       <id>ci</id>
+      <activation>
+        <property>
+          <name>maven.test.failure.ignore</name>
+          <value>true</value>
+        </property>
+      </activation>
       <properties>
         <maven.test.failure.ignore>true</maven.test.failure.ignore>
         <checkstyle.failOnViolation>false</checkstyle.failOnViolation>
         <pmd.failOnViolation>false</pmd.failOnViolation>
         <spotbugs.failOnError>false</spotbugs.failOnError>
+        <flatten.flatten.skip>true</flatten.flatten.skip>
       </properties>
     </profile>
     <profile>
