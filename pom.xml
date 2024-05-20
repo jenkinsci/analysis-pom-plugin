@@ -256,6 +256,11 @@
           <groupId>com.github.ekryd.sortpom</groupId>
           <artifactId>sortpom-maven-plugin</artifactId>
           <version>${sortpom-maven-plugin.version}</version>
+          <configuration>
+            <expandEmptyElements>false</expandEmptyElements>
+            <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
+            <createBackupFile>false</createBackupFile>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
