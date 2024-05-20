@@ -752,7 +752,6 @@
         <checkstyle.failOnViolation>false</checkstyle.failOnViolation>
         <pmd.failOnViolation>false</pmd.failOnViolation>
         <spotbugs.failOnError>false</spotbugs.failOnError>
-        <flatten.flatten.skip>true</flatten.flatten.skip>
       </properties>
     </profile>
     <profile>
