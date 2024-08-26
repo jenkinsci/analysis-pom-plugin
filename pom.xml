@@ -70,7 +70,7 @@
     <spotbugs.version>4.8.6</spotbugs.version>
     <pmd.version>7.4.0</pmd.version>
     <maven-checkstyle-plugin.version>3.4.0</maven-checkstyle-plugin.version>
-    <checkstyle.version>10.17.0</checkstyle.version>
+    <checkstyle.version>10.18.0</checkstyle.version>
     <maven-pmd-plugin.version>3.24.0</maven-pmd-plugin.version>
     <findsecbugs-plugin.version>1.13.0</findsecbugs-plugin.version>
     <pitest-maven.plugin>1.16.1</pitest-maven.plugin>
