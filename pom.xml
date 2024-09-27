@@ -49,7 +49,7 @@
     <jenkins.version>${jenkins.baseline}.1</jenkins.version>
     <java.version>${maven.compiler.release}</java.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
-    <codingstyle.config.version>4.13.0</codingstyle.config.version>
+    <codingstyle.config.version>4.14.0</codingstyle.config.version>
 
     <pmd.skip>false</pmd.skip>
 
