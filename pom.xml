@@ -56,8 +56,8 @@
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>20.13.1</node.version>
     <npm.version>10.8.0</npm.version>
-    <nodeDownloadRoot>https://nodejs.org/dist/</nodeDownloadRoot>
-    <npmDownloadRoot>https://registry.npmjs.org/npm/-/</npmDownloadRoot>
+    <nodeDownloadRoot>https://repo.jenkins-ci.org/nodejs-dist/</nodeDownloadRoot>
+    <npmDownloadRoot>https://repo.jenkins-ci.org/npm-dist/</npmDownloadRoot>
 
     <!-- Test Library Dependencies Versions -->
     <equalsverifier.version>3.17</equalsverifier.version>
