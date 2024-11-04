@@ -71,7 +71,7 @@
     <pmd.version>7.7.0</pmd.version>
     <maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
     <checkstyle.version>10.20.0</checkstyle.version>
-    <maven-pmd-plugin.version>3.25.0</maven-pmd-plugin.version>
+    <maven-pmd-plugin.version>3.26.0</maven-pmd-plugin.version>
     <findsecbugs-plugin.version>1.13.0</findsecbugs-plugin.version>
     <pitest-maven.plugin>1.17.0</pitest-maven.plugin>
     <pitest-maven.junit5.plugin>1.2.1</pitest-maven.junit5.plugin>
