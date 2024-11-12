@@ -11,7 +11,7 @@
 
   <groupId>org.jvnet.hudson.plugins</groupId>
   <artifactId>analysis-pom</artifactId>
-  <version>9.1.0-SNAPSHOT</version>
+  <version>10.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
   <description>This static analysis POM serves as parent POM for all my Jenkins Plugins. It basically enhances the
@@ -34,6 +34,9 @@
       <id>uhafner</id>
       <name>Ullrich Hafner</name>
       <email>ullrich.hafner@gmail.com</email>
+      <url>https://cs.hm.edu/~hafner</url>
+      <organization>Munich University of Applied Sciences</organization>
+      <organizationUrl>https://www.hm.edu/en/index.en.html</organizationUrl>
     </developer>
   </developers>
 
@@ -45,7 +48,7 @@
   </scm>
 
   <properties>
-    <jenkins.baseline>2.462</jenkins.baseline>
+    <jenkins.baseline>2.479</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.1</jenkins.version>
     <java.version>${maven.compiler.release}</java.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
@@ -64,7 +67,7 @@
     <junit-pioneer.version>2.3.0</junit-pioneer.version>
     <assertj.version>3.26.3</assertj.version>
     <archunit.version>1.3.0</archunit.version>
-    <json-unit-fluent.version>2.40.1</json-unit-fluent.version>
+    <json-unit-fluent.version>3.5.0</json-unit-fluent.version>
 
     <!-- Maven plug-in versions -->
     <spotbugs.version>4.8.6</spotbugs.version>
@@ -73,14 +76,20 @@
     <checkstyle.version>10.20.1</checkstyle.version>
     <maven-pmd-plugin.version>3.26.0</maven-pmd-plugin.version>
     <findsecbugs-plugin.version>1.13.0</findsecbugs-plugin.version>
-    <pitest-maven.plugin>1.17.1</pitest-maven.plugin>
-    <pitest-maven.junit5.plugin>1.2.1</pitest-maven.junit5.plugin>
+    <pitest-maven.version>1.17.1</pitest-maven.version>
+    <pitest-junit5-plugin.version>1.2.1</pitest-junit5-plugin.version>
     <revapi-maven-plugin.version>0.15.0</revapi-maven-plugin.version>
     <revapi-java.version>0.28.1</revapi-java.version>
     <revapi-reporter-json-version>0.5.0</revapi-reporter-json-version>
     <assertj-assertions-generator-maven-plugin.version>2.2.0</assertj-assertions-generator-maven-plugin.version>
     <depgraph-maven-plugin.version>4.0.3</depgraph-maven-plugin.version>
-    <sortpom-maven-plugin.version>4.0.0</sortpom-maven-plugin.version>
+
+    <!-- OpenRewrite versions   -->
+    <rewrite-maven-plugin.version>5.44.0</rewrite-maven-plugin.version>
+    <rewrite-testing-frameworks.version>2.21.0</rewrite-testing-frameworks.version>
+    <rewrite-static-analysis.version>1.19.0</rewrite-static-analysis.version>
+    <rewrite-migrate-java.version>2.28.0</rewrite-migrate-java.version>
+    <rewrite-recommendations.version>1.12.0</rewrite-recommendations.version>
   </properties>
 
   <dependencyManagement>
@@ -91,26 +100,6 @@
         <version>3654.v237e4a_f2d8da_</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>net.bytebuddy</groupId>
-        <artifactId>byte-buddy</artifactId>
-        <version>1.15.10</version>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.platform</groupId>
-        <artifactId>junit-platform-engine</artifactId>
-        <version>1.11.3</version>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.platform</groupId>
-        <artifactId>junit-platform-commons</artifactId>
-        <version>1.11.3</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>2.0.16</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -135,27 +124,7 @@
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.vintage</groupId>
-      <artifactId>junit-vintage-engine</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-launcher</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-params</artifactId>
+      <artifactId>junit-jupiter</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -180,6 +149,12 @@
       <artifactId>archunit-junit5</artifactId>
       <version>${archunit.version}</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>net.javacrumbs.json-unit</groupId>
@@ -214,6 +189,47 @@
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>com.github.ekryd.sortpom</groupId>
+          <artifactId>sortpom-maven-plugin</artifactId>
+          <version>${sortpom-maven-plugin.version}</version>
+          <configuration>
+            <expandEmptyElements>false</expandEmptyElements>
+            <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
+            <createBackupFile>false</createBackupFile>
+            <sortPlugins>groupId,artifactId</sortPlugins>
+            <sortExecutions>true</sortExecutions>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>com.github.ferstl</groupId>
+          <artifactId>depgraph-maven-plugin</artifactId>
+          <version>${depgraph-maven-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>io.github.git-commit-id</groupId>
+          <artifactId>git-commit-id-maven-plugin</artifactId>
+          <version>${git-commit-id-maven-plugin.version}</version>
+          <configuration>
+            <generateGitPropertiesFile>true</generateGitPropertiesFile>
+            <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+            <includeOnlyProperties>
+              <includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
+              <includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
+            </includeOnlyProperties>
+            <commitIdGenerationMode>full</commitIdGenerationMode>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>${maven-checkstyle-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>${maven-pmd-plugin.version}</version>
+        </plugin>
+        <plugin>
           <groupId>org.assertj</groupId>
           <artifactId>assertj-assertions-generator-maven-plugin</artifactId>
           <version>${assertj-assertions-generator-maven-plugin.version}</version>
@@ -243,24 +259,90 @@
           </executions>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-dependency-plugin</artifactId>
-          <version>${maven-dependency-plugin.version}</version>
+          <groupId>org.openrewrite.maven</groupId>
+          <artifactId>rewrite-maven-plugin</artifactId>
+          <version>${rewrite-maven-plugin.version}</version>
+          <configuration>
+            <activeRecipes>
+              <recipe>org.openrewrite.maven.BestPractices</recipe>
+              <recipe>org.openrewrite.maven.RemoveRedundantDependencyVersions</recipe>
+              <recipe>org.openrewrite.staticanalysis.AddSerialAnnotationToSerialVersionUID</recipe>
+              <recipe>org.openrewrite.staticanalysis.MissingOverrideAnnotation</recipe>
+              <recipe>org.openrewrite.staticanalysis.CodeCleanup</recipe>
+              <recipe>org.openrewrite.staticanalysis.CommonStaticAnalysis</recipe>
+              <recipe>org.openrewrite.staticanalysis.RemoveExtraSemicolons</recipe>
+              <recipe>org.openrewrite.java.migrate.UpgradeToJava17</recipe>
+              <recipe>org.openrewrite.java.migrate.util.SequencedCollection</recipe>
+              <recipe>org.openrewrite.java.migrate.lang.var.UseVarForObject</recipe>
+              <recipe>org.openrewrite.java.migrate.net.JavaNetAPIs</recipe>
+              <recipe>org.openrewrite.java.migrate.util.JavaUtilAPIs</recipe>
+              <recipe>org.openrewrite.java.migrate.lang.StringRulesRecipes</recipe>
+              <recipe>org.openrewrite.java.format.RemoveTrailingWhitespace</recipe>
+              <recipe>org.openrewrite.java.format.BlankLines</recipe>
+              <recipe>org.openrewrite.java.format.EmptyNewlineAtEndOfFile</recipe>
+              <recipe>org.openrewrite.java.testing.assertj.SimplifyChainedAssertJAssertions</recipe>
+            </activeRecipes>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.openrewrite.recipe</groupId>
+              <artifactId>rewrite-testing-frameworks</artifactId>
+              <version>${rewrite-testing-frameworks.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.openrewrite.recipe</groupId>
+              <artifactId>rewrite-static-analysis</artifactId>
+              <version>${rewrite-static-analysis.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.openrewrite.recipe</groupId>
+              <artifactId>rewrite-migrate-java</artifactId>
+              <version>${rewrite-migrate-java.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.openrewrite.recipe</groupId>
+              <artifactId>rewrite-recommendations</artifactId>
+              <version>${rewrite-recommendations.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
+          <groupId>org.owasp</groupId>
+          <artifactId>dependency-check-maven</artifactId>
+          <version>${dependency-check-maven.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.pitest</groupId>
+          <artifactId>pitest-maven</artifactId>
+          <version>${pitest-maven.version}</version>
+          <configuration>
+            <outputFormats>XML,HTML</outputFormats>
+            <excludedTestClasses>
+              <param>*ITest</param>
+            </excludedTestClasses>
+            <excludedMethods>
+              <param>*equals</param>
+              <param>*hashCode</param>
+              <param>*toString</param>
+            </excludedMethods>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.pitest</groupId>
+              <artifactId>pitest-junit5-plugin</artifactId>
+              <version>${pitest-junit5-plugin.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
+          <groupId>org.revapi</groupId>
+          <artifactId>revapi-maven-plugin</artifactId>
+          <version>${revapi-maven-plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
           <version>${maven-resources-plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>com.github.ekryd.sortpom</groupId>
-          <artifactId>sortpom-maven-plugin</artifactId>
-          <version>${sortpom-maven-plugin.version}</version>
-          <configuration>
-            <expandEmptyElements>false</expandEmptyElements>
-            <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
-            <createBackupFile>false</createBackupFile>
-          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -382,7 +464,7 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>${pitest-maven.plugin}</version>
+        <version>${pitest-maven.version}</version>
         <configuration>
           <outputFormats>XML,HTML</outputFormats>
           <verbose>true</verbose>
@@ -404,7 +486,7 @@
           <dependency>
             <groupId>org.pitest</groupId>
             <artifactId>pitest-junit5-plugin</artifactId>
-            <version>${pitest-maven.junit5.plugin}</version>
+            <version>${pitest-junit5-plugin.version}</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -419,14 +501,14 @@
         </configuration>
         <dependencies>
           <dependency>
-            <groupId>net.sourceforge.pmd</groupId>
+            <groupId>edu.hm.hafner</groupId>
             <artifactId>pmd-core</artifactId>
-            <version>${pmd.version}</version>
+            <version>${pmd.version}-metrics-2</version>
           </dependency>
           <dependency>
-            <groupId>net.sourceforge.pmd</groupId>
+            <groupId>edu.hm.hafner</groupId>
             <artifactId>pmd-java</artifactId>
-            <version>${pmd.version}</version>
+            <version>${pmd.version}-metrics-2</version>
           </dependency>
           <dependency>
             <groupId>net.sourceforge.pmd</groupId>
@@ -498,12 +580,28 @@
               <includeTests>false</includeTests>
               <language>javascript</language>
               <compileSourceRoots>
-                <compileSourceRoot>src/main/resources</compileSourceRoot>
-                <compileSourceRoot>src/main/webapp/js</compileSourceRoot>
+                <compileSourceRoot>${project.basedir}/src/main/resources</compileSourceRoot>
+                <compileSourceRoot>${project.basedir}/src/main/webapp/js</compileSourceRoot>
               </compileSourceRoots>
               <includes>
                 <include>**/*.js</include>
               </includes>
+              <skip>${pmd.skip}</skip>
+            </configuration>
+          </execution>
+          <execution>
+            <id>run-pmd-metrics</id>
+            <goals>
+              <goal>pmd</goal>
+            </goals>
+            <phase>verify</phase>
+            <configuration>
+              <targetDirectory>${project.build.directory}/metrics</targetDirectory>
+              <rulesets>
+                <ruleset>/category/java/metric.xml</ruleset>
+              </rulesets>
+              <format>net.sourceforge.pmd.renderers.MetricsRenderer</format>
+              <includeTests>false</includeTests>
               <skip>${pmd.skip}</skip>
             </configuration>
           </execution>
@@ -766,6 +864,28 @@
                 <id>test</id>
                 <goals>
                   <goal>mutationCoverage</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>owasp</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.owasp</groupId>
+            <artifactId>dependency-check-maven</artifactId>
+            <configuration>
+              <nvdApiKeyEnvironmentVariable>NVD_API_KEY</nvdApiKeyEnvironmentVariable>
+              <format>JSON</format>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>check</goal>
                 </goals>
               </execution>
             </executions>
