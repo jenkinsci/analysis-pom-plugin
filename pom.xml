@@ -49,7 +49,7 @@
 
   <properties>
     <jenkins.baseline>2.479</jenkins.baseline>
-    <jenkins.version>${jenkins.baseline}.1</jenkins.version>
+    <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <java.version>${maven.compiler.release}</java.version>
     <spotbugs.failOnError>false</spotbugs.failOnError>
     <codingstyle.config.version>5.4.0</codingstyle.config.version>
