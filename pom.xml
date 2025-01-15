@@ -747,19 +747,14 @@
               <attachments>
                 <vetted>ok</vetted>
               </attachments>
-              <differences>
-                <item>
-                  <ignore>true</ignore>
-                  <regex>true</regex>
-                  <code>java.annotation.*</code>
-                  <annotationType>edu.umd.cs.findbugs.annotations.*</annotationType>
-                  <justification>Annotation should be safe to change</justification>
-                </item>
-              </differences>
             </revapi.differences>
             <revapi.versions>
               <enabled>true</enabled>
               <strictSemver>false</strictSemver>
+              <onAllowed>
+                <criticality>documented</criticality>
+                <justification>Allowed by the rules of semantic versioning.</justification>
+              </onAllowed>
             </revapi.versions>
             <revapi.filter>
               <elements>
@@ -786,7 +781,7 @@
             <revapi.reporter.json>
               <minSeverity>NON_BREAKING</minSeverity>
               <minCriticality>documented</minCriticality>
-              <output>${project.build.outputDirectory}/revapi-result.json</output>
+              <output>${project.build.directory}/revapi-result.json</output>
               <indent>false</indent>
               <append>false</append>
               <keepEmptyFile>true</keepEmptyFile>
