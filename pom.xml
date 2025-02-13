@@ -57,8 +57,8 @@
     <pmd.skip>false</pmd.skip>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
-    <node.version>20.13.1</node.version>
-    <npm.version>10.8.0</npm.version>
+    <node.version>22.13.1</node.version>
+    <npm.version>10.9.2</npm.version>
     <nodeDownloadRoot>https://repo.jenkins-ci.org/nodejs-dist/</nodeDownloadRoot>
     <npmDownloadRoot>https://repo.jenkins-ci.org/npm-dist/</npmDownloadRoot>
 
