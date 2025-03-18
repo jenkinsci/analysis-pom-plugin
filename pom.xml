@@ -735,7 +735,7 @@
         <version>${revapi-maven-plugin.version}</version>
         <configuration>
           <versionFormat>[-0-9.]*</versionFormat>
-          <failBuildOnProblemsFound>true</failBuildOnProblemsFound>
+          <checkDependencies>false</checkDependencies>
           <pipelineConfiguration>
             <transformBlocks>
               <block>
@@ -761,6 +761,14 @@
             <revapi.filter>
               <elements>
                 <exclude>
+                  <item>
+                    <matcher>java-package</matcher>
+                    <match>/org\.jenkinsci\.plugins\.workflow(\..*)?/</match>
+                  </item>
+                  <item>
+                    <matcher>java-package</matcher>
+                    <match>/org\.jenkins\.ui\.symbol(\..*)?/</match>
+                  </item>
                   <item>
                     <matcher>java-package</matcher>
                     <match>/org\.jvnet(\..*)?/</match>
@@ -847,6 +855,7 @@
         <checkstyle.failOnViolation>false</checkstyle.failOnViolation>
         <pmd.failOnViolation>false</pmd.failOnViolation>
         <spotbugs.failOnError>false</spotbugs.failOnError>
+        <revapi.failBuildOnProblemsFound>false</revapi.failBuildOnProblemsFound>
       </properties>
     </profile>
     <profile>
