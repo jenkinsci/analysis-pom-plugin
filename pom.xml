@@ -51,10 +51,10 @@
     <jenkins.baseline>2.479</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <java.version>${maven.compiler.release}</java.version>
-    <spotbugs.failOnError>false</spotbugs.failOnError>
-    <codingstyle.config.version>5.9.0</codingstyle.config.version>
 
     <pmd.skip>false</pmd.skip>
+
+    <codingstyle.config.version>5.9.0</codingstyle.config.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>22.13.1</node.version>
@@ -155,6 +155,10 @@
         <exclusion>
           <groupId>org.slf4j</groupId>
           <artifactId>slf4j-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <artifactId>junit-platform-engine</artifactId>
+          <groupId>org.junit.platform</groupId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -428,7 +432,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
-        <version>${maven-surefire-plugin.version}</version>
         <configuration>
           <includes>
             <include>**/*ITest.*</include>
@@ -466,7 +469,6 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>${pitest-maven.version}</version>
         <configuration>
           <outputFormats>XML,HTML</outputFormats>
           <verbose>true</verbose>
@@ -495,7 +497,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>${maven-pmd-plugin.version}</version>
         <configuration>
           <linkXRef>false</linkXRef>
           <targetJdk>${java.version}</targetJdk>
@@ -612,7 +613,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${maven-checkstyle-plugin.version}</version>
         <configuration>
           <linkXRef>false</linkXRef>
           <excludeGeneratedSources>true</excludeGeneratedSources>
@@ -732,7 +732,6 @@
       <plugin>
         <groupId>org.revapi</groupId>
         <artifactId>revapi-maven-plugin</artifactId>
-        <version>${revapi-maven-plugin.version}</version>
         <configuration>
           <versionFormat>[-0-9.]*</versionFormat>
           <checkDependencies>false</checkDependencies>
@@ -915,7 +914,6 @@
           <plugin>
             <groupId>com.github.ferstl</groupId>
             <artifactId>depgraph-maven-plugin</artifactId>
-            <version>${depgraph-maven-plugin.version}</version>
             <configuration>
               <graphFormat>puml</graphFormat>
               <classpathScope>compile</classpathScope>
