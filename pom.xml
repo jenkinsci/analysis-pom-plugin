@@ -51,10 +51,10 @@
     <jenkins.baseline>2.479</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <java.version>${maven.compiler.release}</java.version>
-    <spotbugs.failOnError>false</spotbugs.failOnError>
-    <codingstyle.config.version>5.9.0</codingstyle.config.version>
 
     <pmd.skip>false</pmd.skip>
+
+    <codingstyle.config.version>5.9.0</codingstyle.config.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>22.13.1</node.version>
