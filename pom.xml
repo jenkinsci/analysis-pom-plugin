@@ -54,7 +54,7 @@
 
     <pmd.skip>false</pmd.skip>
 
-    <codingstyle.config.version>5.9.0</codingstyle.config.version>
+    <codingstyle.config.version>5.10.0</codingstyle.config.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>22.13.1</node.version>
@@ -75,7 +75,7 @@
     <pmd.version>7.12.0</pmd.version>
     <pmd.metrics.version>7.12.0-metrics</pmd.metrics.version>
     <maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
-    <checkstyle.version>10.21.4</checkstyle.version>
+    <checkstyle.version>10.22.0</checkstyle.version>
     <maven-pmd-plugin.version>3.26.0</maven-pmd-plugin.version>
     <findsecbugs-plugin.version>1.13.0</findsecbugs-plugin.version>
     <pitest-maven.version>1.19.0</pitest-maven.version>
