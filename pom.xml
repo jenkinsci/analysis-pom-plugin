@@ -54,7 +54,7 @@
 
     <pmd.skip>false</pmd.skip>
 
-    <codingstyle.config.version>5.9.0</codingstyle.config.version>
+    <codingstyle.config.version>5.10.0</codingstyle.config.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>22.13.1</node.version>
@@ -87,10 +87,10 @@
     <dependency-check-maven.version>12.1.0</dependency-check-maven.version>
 
     <!-- OpenRewrite versions   -->
-    <rewrite-maven-plugin.version>6.3.2</rewrite-maven-plugin.version>
-    <rewrite-testing-frameworks.version>3.4.0</rewrite-testing-frameworks.version>
-    <rewrite-static-analysis.version>2.4.0</rewrite-static-analysis.version>
-    <rewrite-migrate-java.version>3.4.0</rewrite-migrate-java.version>
+    <rewrite-maven-plugin.version>6.4.0</rewrite-maven-plugin.version>
+    <rewrite-testing-frameworks.version>3.5.1</rewrite-testing-frameworks.version>
+    <rewrite-static-analysis.version>2.5.1</rewrite-static-analysis.version>
+    <rewrite-migrate-java.version>3.5.0</rewrite-migrate-java.version>
     <rewrite-recommendations.version>1.15.0</rewrite-recommendations.version>
   </properties>
 
@@ -99,7 +99,7 @@
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
         <artifactId>bom-${jenkins.baseline}.x</artifactId>
-        <version>4488.v7fe26526366e</version>
+        <version>4545.v56392b_7ca_7b_a_</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
