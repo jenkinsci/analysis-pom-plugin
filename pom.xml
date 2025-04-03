@@ -745,7 +745,7 @@
             </transformBlocks>
           </pipelineConfiguration>
           <analysisConfiguration>
-            <revapi.differences id="manually-vetted ">
+            <revapi.differences id="manually-vetted">
               <attachments>
                 <vetted>ok</vetted>
               </attachments>
