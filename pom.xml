@@ -11,7 +11,7 @@
 
   <groupId>org.jvnet.hudson.plugins</groupId>
   <artifactId>analysis-pom</artifactId>
-  <version>10.12.0</version>
+  <version>10.13.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
   <description>This static analysis POM serves as parent POM for all my Jenkins Plugins. It basically enhances the
@@ -43,7 +43,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
-    <tag>v10.12.0</tag>
+    <tag>${scmTag}</tag>
     <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
   </scm>
 
