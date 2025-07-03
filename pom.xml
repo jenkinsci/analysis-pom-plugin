@@ -544,6 +544,9 @@
               <minimumTokens>50</minimumTokens>
               <printFailingErrors>true</printFailingErrors>
               <skip>${pmd.skip}</skip>
+              <excludeRoots>
+                <excludeRoot>${project.build.directory}/generated-sources/localizer</excludeRoot>
+              </excludeRoots>
             </configuration>
           </execution>
           <execution>
