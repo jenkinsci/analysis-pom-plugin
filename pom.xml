@@ -567,6 +567,7 @@
               <printFailingErrors>true</printFailingErrors>
               <excludeRoots>
                 <excludeRoot>src/main/java</excludeRoot>
+                <excludeRoot>${project.build.directory}/generated-sources/localizer</excludeRoot>
                 <excludeRoot>${project.build.directory}/generated-test-sources/injected</excludeRoot>
                 <excludeRoot>${project.build.directory}/generated-test-sources/test-annotations</excludeRoot>
                 <excludeRoot>${project.build.directory}/generated-test-sources/assertj-assertions</excludeRoot>
