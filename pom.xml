@@ -63,7 +63,7 @@
     <npmDownloadRoot>https://repo.jenkins-ci.org/npm-dist/</npmDownloadRoot>
 
     <!-- Test Library Dependencies Versions -->
-    <equalsverifier.version>4.0.4</equalsverifier.version>
+    <equalsverifier.version>4.0.5</equalsverifier.version>
     <junit-pioneer.version>2.3.0</junit-pioneer.version>
     <assertj.version>3.27.3</assertj.version>
     <archunit.version>1.4.1</archunit.version>
