@@ -5,10 +5,9 @@
 [![Jenkins](https://ci.jenkins.io/job/Plugins/job/analysis-pom-plugin/job/main/badge/icon?subject=Jenkins%20CI)](https://ci.jenkins.io/job/Plugins/job/analysis-pom-plugin/job/main/)
 [![GitHub Actions](https://github.com/jenkinsci/analysis-pom-plugin/workflows/GitHub%20CI/badge.svg)](https://github.com/jenkinsci/analysis-pom-plugin/actions)
 
-This static analysis POM serves as parent POM for all my Jenkins Plugins. It basically enhances the 
-[Parent POM for Jenkins Plugins](https://github.com/jenkinsci/plugin-pom) 
-with a predefined configuration of several static analysis tools. Additionally, it provides a fix set of test dependencies that are common
-to all my plugins. This POM enforces the [Java style guide](https://github.com/uhafner/codingstyle) that I am using
-in these plugins (and in my lectures at the Munich University of Applied Sciences).
+This POM serves as parent POM for all my Jenkins Plugins. 
+It basically enhances the [Parent POM for Jenkins Plugins](https://github.com/jenkinsci/plugin-pom) with a predefined configuration of several static analysis tools.
+Additionally, it provides a fix set of test dependencies that are common to all my plugins. 
+This POM enforces the [Java style guide](https://github.com/uhafner/codingstyle) that I am using in these plugins (and in my lectures at the Munich University of Applied Sciences).
 
 
