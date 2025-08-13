@@ -989,6 +989,22 @@
               <skip>true</skip>
             </configuration>
           </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>versions-maven-plugin</artifactId>
+            <version>2.18.0</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>set</goal>
+                </goals>
+                <phase>verify</phase>
+              </execution>
+            </executions>
+            <configuration>
+              <newVersion>${project.version}</newVersion>
+            </configuration>
+          </plugin>
         </plugins>
       </build>
     </profile>
