@@ -59,7 +59,7 @@
 
     <pmd.skip>false</pmd.skip>
 
-    <codingstyle.config.version>5.15.0</codingstyle.config.version>
+    <codingstyle.config.version>5.17.0</codingstyle.config.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>22.13.1</node.version>
