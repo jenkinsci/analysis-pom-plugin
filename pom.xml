@@ -263,9 +263,11 @@
             <templates>
               <templatesDirectory>${project.basedir}/etc/assertj-templates/</templatesDirectory>
               <assertionsEntryPointClass>assertions_entry_point_class_template.txt</assertionsEntryPointClass>
-              <softEntryPointAssertionClass>soft_assertions_entry_point_class_template.txt
-              </softEntryPointAssertionClass>
+              <assertionEntryPointMethod>assertions_entry_point_method_template.txt</assertionEntryPointMethod>
+              <softEntryPointAssertionClass>soft_assertions_entry_point_class_template.txt</softEntryPointAssertionClass>
+              <softEntryPointAssertionMethod>soft_assertions_entry_point_method_template.txt</softEntryPointAssertionMethod>
               <objectAssertion>has_assertion_template.txt</objectAssertion>
+              <assertionClass>assertion_class_template.txt</assertionClass>
             </templates>
           </configuration>
           <executions>
