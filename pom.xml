@@ -62,8 +62,8 @@
     <codingstyle.config.version>5.17.0</codingstyle.config.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
-    <node.version>22.13.1</node.version>
-    <npm.version>10.9.2</npm.version>
+    <node.version>22.19.0</node.version>
+    <npm.version>11.6.0</npm.version>
     <nodeDownloadRoot>https://repo.jenkins-ci.org/nodejs-dist/</nodeDownloadRoot>
     <npmDownloadRoot>https://repo.jenkins-ci.org/npm-dist/</npmDownloadRoot>
 
