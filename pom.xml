@@ -75,7 +75,7 @@
     <json-unit-fluent.version>4.1.1</json-unit-fluent.version>
 
     <!-- Maven plug-in versions -->
-    <spotbugs.version>4.9.4</spotbugs.version>
+    <spotbugs.version>4.9.5</spotbugs.version>
     <spotbugs-maven-plugin.version>4.8.6.6</spotbugs-maven-plugin.version>
     <pmd.version>7.17.0</pmd.version>
     <pmd.metrics.version>7.16.0-metrics</pmd.metrics.version>
