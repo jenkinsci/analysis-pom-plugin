@@ -70,7 +70,7 @@
     <!-- Test Library Dependencies Versions -->
     <equalsverifier.version>4.1</equalsverifier.version>
     <junit-pioneer.version>2.3.0</junit-pioneer.version>
-    <assertj.version>3.27.4</assertj.version>
+    <assertj.version>3.27.5</assertj.version>
     <archunit.version>1.4.1</archunit.version>
     <json-unit-fluent.version>4.1.1</json-unit-fluent.version>
 
