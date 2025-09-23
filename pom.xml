@@ -12,7 +12,7 @@
 
   <groupId>org.jvnet.hudson.plugins</groupId>
   <artifactId>analysis-pom</artifactId>
-  <version>10.999999-SNAPSHOT</version>
+  <version>${revision}.${changelist}</version>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
   <description>This POM serves as parent POM for all my Jenkins Plugins. It basically enhances the
