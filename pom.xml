@@ -84,7 +84,7 @@
     <checkstyle.version>11.1.0</checkstyle.version>
     <maven-pmd-plugin.version>3.27.0</maven-pmd-plugin.version>
     <findsecbugs-plugin.version>1.14.0</findsecbugs-plugin.version>
-    <pitest-maven.version>1.20.4</pitest-maven.version>
+    <pitest-maven.version>1.20.5</pitest-maven.version>
     <pitest-junit5-plugin.version>1.2.3</pitest-junit5-plugin.version>
     <revapi-maven-plugin.version>0.15.1</revapi-maven-plugin.version>
     <revapi-java.version>0.28.4</revapi-java.version>
