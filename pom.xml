@@ -400,6 +400,8 @@
         <configuration>
           <compilerArgs>
             <arg>-Xlint:all</arg>
+            <arg>-J-Duser.country=US</arg>
+            <arg>-J-Duser.language=en</arg>
           </compilerArgs>
         </configuration>
       </plugin>
