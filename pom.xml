@@ -114,6 +114,13 @@
   </dependencyManagement>
 
   <dependencies>
+    <!-- Annotations are required to build without warnings -->
+    <dependency>
+      <groupId>com.github.spotbugs</groupId>
+      <artifactId>spotbugs-annotations</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
     <!-- Project Dependencies -->
     <dependency>
       <groupId>io.jenkins.plugins</groupId>
