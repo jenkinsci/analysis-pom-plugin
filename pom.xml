@@ -114,6 +114,13 @@
   </dependencyManagement>
 
   <dependencies>
+    <!-- Annotations are required to build without warnings -->
+    <dependency>
+      <groupId>com.github.spotbugs</groupId>
+      <artifactId>spotbugs-annotations</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
     <!-- Project Dependencies -->
     <dependency>
       <groupId>io.jenkins.plugins</groupId>
@@ -393,6 +400,8 @@
         <configuration>
           <compilerArgs>
             <arg>-Xlint:all</arg>
+            <arg>-J-Duser.country=US</arg>
+            <arg>-J-Duser.language=en</arg>
           </compilerArgs>
         </configuration>
       </plugin>
