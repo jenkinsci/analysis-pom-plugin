@@ -56,7 +56,6 @@
     <jenkins.baseline>2.516</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <java.version>${maven.compiler.release}</java.version>
-    <java.build.version>21</java.build.version>
 
     <pmd.skip>false</pmd.skip>
 
@@ -383,9 +382,6 @@
                 <requireUpperBoundDeps>
                   <level>WARN</level>
                 </requireUpperBoundDeps>
-                <requireJavaVersion>
-                  <version>${java.build.version}</version>
-                </requireJavaVersion>
               </rules>
             </configuration>
           </execution>
