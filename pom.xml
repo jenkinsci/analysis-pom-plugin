@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>5.2102.v5f5fe09fccf1</version>
+    <version>6.2111.v8b_6a_1d599df3</version>
     <relativePath/>
   </parent>
 
@@ -50,16 +50,16 @@
   </scm>
 
   <properties>
-    <revision>11</revision>
+    <revision>12</revision>
     <changelist>999999-SNAPSHOT</changelist>
     <gitHubRepo>jenkinsci/analysis-pom-plugin</gitHubRepo>
-    <jenkins.baseline>2.516</jenkins.baseline>
-    <jenkins.version>${jenkins.baseline}.3</jenkins.version>
-    <java.version>${maven.compiler.release}</java.version>
+    <jenkins.baseline>2.545</jenkins.baseline>
+    <jenkins.version>2.545</jenkins.version>
+    <java.version>21</java.version>
 
     <pmd.skip>false</pmd.skip>
 
-    <codingstyle.config.version>5.26.0</codingstyle.config.version>
+    <codingstyle.config.version>6.0.0</codingstyle.config.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>22.19.0</node.version>
@@ -105,8 +105,8 @@
     <dependencies>
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
-        <artifactId>bom-${jenkins.baseline}.x</artifactId>
-        <version>5857.vb_f3dd0731f44</version>
+        <artifactId>bom-weekly</artifactId>
+        <version>5888.vd99c2b_38128d</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -382,6 +382,13 @@
                 <requireUpperBoundDeps>
                   <level>WARN</level>
                 </requireUpperBoundDeps>
+                <enforceBytecodeVersion>
+                  <maxJdkVersion>${java.version}</maxJdkVersion>
+                </enforceBytecodeVersion>
+                <requireJavaVersion>
+                  <version>[21,22),[25,26)</version>
+                  <message>Java LTS 21 or 25 is required to build this project.</message>
+                </requireJavaVersion>
               </rules>
             </configuration>
           </execution>
