@@ -57,7 +57,7 @@
     <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <java.version>${maven.compiler.release}</java.version>
 
-    <codingstyle.config.version>5.26.0</codingstyle.config.version>
+    <codingstyle.config.version>6.0.0</codingstyle.config.version>
 
     <pmd.skip>false</pmd.skip>
     <ban-junit4-imports.skip>false</ban-junit4-imports.skip>
