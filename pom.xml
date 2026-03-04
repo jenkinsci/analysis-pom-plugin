@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>6.2111.v8b_6a_1d599df3</version>
+    <version>6.2138.v03274d462c13</version>
     <relativePath/>
   </parent>
 
@@ -57,9 +57,11 @@
     <jenkins.version>2.553</jenkins.version>
     <java.version>21</java.version>
 
+    <codingstyle.config.version>6.5.0</codingstyle.config.version>
+
     <pmd.skip>false</pmd.skip>
 
-    <codingstyle.config.version>6.0.0</codingstyle.config.version>
+    <codingstyle.config.version>6.6.0</codingstyle.config.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>22.19.0</node.version>
@@ -68,9 +70,9 @@
     <npmDownloadRoot>https://repo.jenkins-ci.org/npm-dist/</npmDownloadRoot>
 
     <!-- Test Library Dependencies Versions -->
-    <equalsverifier.version>4.3</equalsverifier.version>
+    <equalsverifier.version>4.4.1</equalsverifier.version>
     <junit-pioneer.version>2.3.0</junit-pioneer.version>
-    <assertj.version>3.27.6</assertj.version>
+    <assertj.version>3.27.7</assertj.version>
     <archunit.version>1.4.1</archunit.version>
     <json-unit-fluent.version>5.1.0</json-unit-fluent.version>
 
@@ -78,26 +80,26 @@
     <spotbugs.version>4.9.8</spotbugs.version>
     <spotbugs-maven-plugin.version>4.9.6.0</spotbugs-maven-plugin.version>
     <jsr305.version>3.0.2</jsr305.version>
-    <pmd.version>7.20.0</pmd.version>
-    <pmd.metrics.version>7.20.0-metrics</pmd.metrics.version>
+    <pmd.version>7.21.0</pmd.version>
+    <pmd.metrics.version>7.22.0-metrics</pmd.metrics.version>
     <maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
-    <checkstyle.version>13.0.0</checkstyle.version>
+    <checkstyle.version>13.3.0</checkstyle.version>
     <maven-pmd-plugin.version>3.28.0</maven-pmd-plugin.version>
     <findsecbugs-plugin.version>1.14.0</findsecbugs-plugin.version>
-    <pitest-maven.version>1.22.0</pitest-maven.version>
+    <pitest-maven.version>1.22.1</pitest-maven.version>
     <pitest-junit5-plugin.version>1.2.3</pitest-junit5-plugin.version>
     <revapi-maven-plugin.version>0.15.1</revapi-maven-plugin.version>
     <revapi-java.version>0.28.4</revapi-java.version>
     <revapi-reporter-json-version>0.5.1</revapi-reporter-json-version>
     <assertj-assertions-generator-maven-plugin.version>2.2.0</assertj-assertions-generator-maven-plugin.version>
     <depgraph-maven-plugin.version>4.0.3</depgraph-maven-plugin.version>
-    <dependency-check-maven.version>12.1.9</dependency-check-maven.version>
+    <dependency-check-maven.version>12.2.0</dependency-check-maven.version>
 
     <!-- OpenRewrite versions   -->
-    <rewrite-maven-plugin.version>6.27.0</rewrite-maven-plugin.version>
-    <rewrite-testing-frameworks.version>3.25.0</rewrite-testing-frameworks.version>
-    <rewrite-static-analysis.version>2.25.0</rewrite-static-analysis.version>
-    <rewrite-migrate-java.version>3.25.0</rewrite-migrate-java.version>
+    <rewrite-maven-plugin.version>6.29.0</rewrite-maven-plugin.version>
+    <rewrite-testing-frameworks.version>3.28.0</rewrite-testing-frameworks.version>
+    <rewrite-static-analysis.version>2.26.0</rewrite-static-analysis.version>
+    <rewrite-migrate-java.version>3.28.0</rewrite-migrate-java.version>
     <rewrite-recommendations.version>1.15.0</rewrite-recommendations.version>
   </properties>
 
@@ -1019,7 +1021,7 @@
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>versions-maven-plugin</artifactId>
-            <version>2.20.1</version>
+            <version>2.21.0</version>
             <executions>
               <execution>
                 <goals>
