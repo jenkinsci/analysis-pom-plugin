@@ -12,7 +12,7 @@
 
   <groupId>org.jvnet.hudson.plugins</groupId>
   <artifactId>analysis-pom</artifactId>
-  <version>${revision}.${changelist}</version>
+  <version>12.999999-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
   <description>This POM serves as parent POM for all my Jenkins Plugins. It basically enhances the
@@ -107,7 +107,7 @@
     <dependencies>
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
-        <artifactId>bom-weekly</artifactId>
+        <artifactId>bom-2.555.x</artifactId>
         <version>6237.v4da_61a_4a_19e5</version>
         <type>pom</type>
         <scope>import</scope>
