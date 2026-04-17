@@ -54,7 +54,7 @@
     <changelist>999999-SNAPSHOT</changelist>
     <gitHubRepo>jenkinsci/analysis-pom-plugin</gitHubRepo>
     <jenkins.baseline>2.555</jenkins.baseline>
-    <jenkins.version>2.555</jenkins.version>
+    <jenkins.version>${jenkins.baseline}.1</jenkins.version>
     <java.version>21</java.version>
 
     <codingstyle.config.version>6.5.0</codingstyle.config.version>
