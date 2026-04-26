@@ -73,7 +73,7 @@
     <equalsverifier.version>4.5</equalsverifier.version>
     <junit-pioneer.version>2.3.0</junit-pioneer.version>
     <assertj.version>3.27.7</assertj.version>
-    <archunit.version>1.4.1</archunit.version>
+    <archunit.version>1.4.2</archunit.version>
     <json-unit-fluent.version>5.1.1</json-unit-fluent.version>
 
     <!-- Maven plug-in versions -->
