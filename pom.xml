@@ -937,6 +937,7 @@
               <nvdApiKeyEnvironmentVariable>NVD_API_KEY</nvdApiKeyEnvironmentVariable>
               <format>JSON</format>
               <ossIndexAnalyzerEnabled>false</ossIndexAnalyzerEnabled>
+              <ossIndexWarnOnlyOnRemoteErrors>true</ossIndexWarnOnlyOnRemoteErrors>
             </configuration>
             <executions>
               <execution>
