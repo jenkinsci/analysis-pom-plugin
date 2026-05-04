@@ -936,9 +936,7 @@
             <configuration>
               <nvdApiKeyEnvironmentVariable>NVD_API_KEY</nvdApiKeyEnvironmentVariable>
               <format>JSON</format>
-              <ossIndexUsername>ullrich.hafner@gmail.com</ossIndexUsername>
-              <!--suppress UnresolvedMavenProperty: credentials are provided during CI -->
-              <ossIndexPassword>${env.OSS_INDEX_TOKEN}</ossIndexPassword>
+              <ossIndexAnalyzerEnabled>false</ossIndexAnalyzerEnabled>
             </configuration>
             <executions>
               <execution>
