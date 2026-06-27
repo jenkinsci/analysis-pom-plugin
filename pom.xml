@@ -938,6 +938,8 @@
               <format>JSON</format>
               <ossIndexAnalyzerEnabled>false</ossIndexAnalyzerEnabled>
               <ossIndexWarnOnlyOnRemoteErrors>true</ossIndexWarnOnlyOnRemoteErrors>
+              <nvdApiDelay>1500</nvdApiDelay>
+              <nvdMaxRetryCount>20</nvdMaxRetryCount>
             </configuration>
             <executions>
               <execution>
