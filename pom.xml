@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>6.2211.v27f680c93c53</version>
+    <version>6.2221.va_045130417c9</version>
     <relativePath/>
   </parent>
 
@@ -60,6 +60,7 @@
     <codingstyle.config.version>6.5.0</codingstyle.config.version>
 
     <pmd.skip>false</pmd.skip>
+    <banObsoleteDependencyOverrides.skip>false</banObsoleteDependencyOverrides.skip>
 
     <codingstyle.config.version>6.16.0</codingstyle.config.version>
 
@@ -78,7 +79,6 @@
 
     <!-- Maven plug-in versions -->
     <spotbugs.version>4.10.4</spotbugs.version>
-    <spotbugs-maven-plugin.version>4.9.6.0</spotbugs-maven-plugin.version>
     <jsr305.version>3.0.2</jsr305.version>
     <pmd.version>7.26.0</pmd.version>
     <pmd.metrics.version>7.26.0-metrics</pmd.metrics.version>
