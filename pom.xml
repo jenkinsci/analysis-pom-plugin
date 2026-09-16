@@ -81,7 +81,7 @@
     <spotbugs.version>4.10.4</spotbugs.version>
     <jsr305.version>3.0.2</jsr305.version>
     <pmd.version>7.26.0</pmd.version>
-    <pmd.metrics.version>7.26.0-metrics</pmd.metrics.version>
+    <pmd.metrics.version>7.27.0-metrics</pmd.metrics.version>
     <maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
     <checkstyle.version>14.0.0</checkstyle.version>
     <maven-pmd-plugin.version>3.28.0</maven-pmd-plugin.version>
