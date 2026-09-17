@@ -62,7 +62,7 @@
     <pmd.skip>false</pmd.skip>
     <banObsoleteDependencyOverrides.skip>false</banObsoleteDependencyOverrides.skip>
 
-    <codingstyle.config.version>6.17.0</codingstyle.config.version>
+    <codingstyle.config.version>6.18.0</codingstyle.config.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>22.19.0</node.version>
