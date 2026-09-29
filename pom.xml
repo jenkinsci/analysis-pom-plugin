@@ -57,12 +57,10 @@
     <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <java.version>21</java.version>
 
-    <codingstyle.config.version>6.5.0</codingstyle.config.version>
-
     <pmd.skip>false</pmd.skip>
     <banObsoleteDependencyOverrides.skip>false</banObsoleteDependencyOverrides.skip>
-
-    <codingstyle.config.version>6.18.0</codingstyle.config.version>
+    <spotless.check.skip>false</spotless.check.skip>
+    <codingstyle.config.version>7.0.0</codingstyle.config.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>24.21.0</node.version>
