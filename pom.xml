@@ -58,7 +58,7 @@
     <pmd.skip>false</pmd.skip>
     <banObsoleteDependencyOverrides.skip>false</banObsoleteDependencyOverrides.skip>
     <spotless.check.skip>false</spotless.check.skip>
-    <codingstyle.config.version>7.0.0</codingstyle.config.version>
+    <codingstyle.config.version>7.1.0</codingstyle.config.version>
 
     <!-- NPM and node versions for frontend-maven-plugin -->
     <node.version>24.21.0</node.version>
