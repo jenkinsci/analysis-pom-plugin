@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
     <version>6.2236.v12dd4c483242</version>
-    <relativePath/>
+    <relativePath />
   </parent>
 
   <groupId>org.jvnet.hudson.plugins</groupId>
@@ -19,8 +18,7 @@
     Parent POM for Jenkins Plugins (see https://github.com/jenkinsci/plugin-pom) with a predefined configuration of
     several static analysis tools. Additionally, it provides a fix set of test dependencies that are common
     to all my plugins. This POM enforces the Java style guide (see https://github.com/uhafner/codingstyle) that I am
-    using in these plugins (and in my lectures at the Munich University of Applied Sciences).
-  </description>
+    using in these plugins (and in my lectures at the Munich University of Applied Sciences).</description>
 
   <url>https://github.com/jenkinsci/analysis-pom-plugin</url>
 
@@ -114,12 +112,6 @@
   </dependencyManagement>
 
   <dependencies>
-    <!-- Annotations are required to build without warnings -->
-    <dependency>
-      <groupId>com.github.spotbugs</groupId>
-      <artifactId>spotbugs-annotations</artifactId>
-      <scope>provided</scope>
-    </dependency>
 
     <!-- Project Dependencies -->
     <dependency>
@@ -130,35 +122,11 @@
       <groupId>io.jenkins.plugins</groupId>
       <artifactId>commons-text-api</artifactId>
     </dependency>
-
-    <!-- Test Dependencies -->
+    <!-- Annotations are required to build without warnings -->
     <dependency>
-      <groupId>nl.jqno.equalsverifier</groupId>
-      <artifactId>equalsverifier</artifactId>
-      <version>${equalsverifier.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit-pioneer</groupId>
-      <artifactId>junit-pioneer</artifactId>
-      <version>${junit-pioneer.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>${assertj.version}</version>
-      <scope>test</scope>
+      <groupId>com.github.spotbugs</groupId>
+      <artifactId>spotbugs-annotations</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.tngtech.archunit</groupId>
@@ -167,12 +135,12 @@
       <scope>test</scope>
       <exclusions>
         <exclusion>
-          <groupId>org.slf4j</groupId>
-          <artifactId>slf4j-api</artifactId>
+          <groupId>org.junit.platform</groupId>
+          <artifactId>junit-platform-engine</artifactId>
         </exclusion>
         <exclusion>
-          <artifactId>junit-platform-engine</artifactId>
-          <groupId>org.junit.platform</groupId>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -187,6 +155,36 @@
           <artifactId>asm</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+
+    <!-- Test Dependencies -->
+    <dependency>
+      <groupId>nl.jqno.equalsverifier</groupId>
+      <artifactId>equalsverifier</artifactId>
+      <version>${equalsverifier.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit-pioneer</groupId>
+      <artifactId>junit-pioneer</artifactId>
+      <version>${junit-pioneer.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <scope>test</scope>
     </dependency>
 
   </dependencies>
@@ -211,7 +209,8 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
-          <version>3.5.6</version> <!-- 3.6.0 does not find any integration tests anymore -->
+          <version>3.5.6</version>
+          <!-- 3.6.0 does not find any integration tests anymore -->
         </plugin>
         <plugin>
           <groupId>com.github.ekryd.sortpom</groupId>
@@ -236,8 +235,7 @@
           <version>${git-commit-id-maven-plugin.version}</version>
           <configuration>
             <generateGitPropertiesFile>true</generateGitPropertiesFile>
-            <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties
-            </generateGitPropertiesFilename>
+            <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
             <includeOnlyProperties>
               <includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
               <includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
@@ -315,8 +313,13 @@
           <dependencies>
             <dependency>
               <groupId>org.openrewrite.recipe</groupId>
-              <artifactId>rewrite-testing-frameworks</artifactId>
-              <version>${rewrite-testing-frameworks.version}</version>
+              <artifactId>rewrite-migrate-java</artifactId>
+              <version>${rewrite-migrate-java.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.openrewrite.recipe</groupId>
+              <artifactId>rewrite-recommendations</artifactId>
+              <version>${rewrite-recommendations.version}</version>
             </dependency>
             <dependency>
               <groupId>org.openrewrite.recipe</groupId>
@@ -325,13 +328,8 @@
             </dependency>
             <dependency>
               <groupId>org.openrewrite.recipe</groupId>
-              <artifactId>rewrite-migrate-java</artifactId>
-              <version>${rewrite-migrate-java.version}</version>
-            </dependency>
-            <dependency>
-              <groupId>org.openrewrite.recipe</groupId>
-              <artifactId>rewrite-recommendations</artifactId>
-              <version>${rewrite-recommendations.version}</version>
+              <artifactId>rewrite-testing-frameworks</artifactId>
+              <version>${rewrite-testing-frameworks.version}</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -537,6 +535,12 @@
         <dependencies>
           <dependency>
             <groupId>edu.hm.hafner</groupId>
+            <artifactId>codingstyle</artifactId>
+            <version>${codingstyle.config.version}</version>
+            <classifier>config</classifier>
+          </dependency>
+          <dependency>
+            <groupId>edu.hm.hafner</groupId>
             <artifactId>pmd-core</artifactId>
             <version>${pmd.metrics.version}</version>
           </dependency>
@@ -549,12 +553,6 @@
             <groupId>net.sourceforge.pmd</groupId>
             <artifactId>pmd-javascript</artifactId>
             <version>${pmd.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>edu.hm.hafner</groupId>
-            <artifactId>codingstyle</artifactId>
-            <version>${codingstyle.config.version}</version>
-            <classifier>config</classifier>
           </dependency>
         </dependencies>
         <executions>
@@ -696,7 +694,7 @@
               <includeTestSourceDirectory>true</includeTestSourceDirectory>
               <configLocation>checkstyle-tests-configuration.xml</configLocation>
               <outputFile>${project.build.directory}/checkstyle-tests/checkstyle-result.xml</outputFile>
-              <sourceDirectories/>
+              <sourceDirectories />
             </configuration>
           </execution>
         </executions>
@@ -722,12 +720,6 @@
         </configuration>
         <dependencies>
           <dependency>
-            <groupId>edu.hm.hafner</groupId>
-            <artifactId>codingstyle</artifactId>
-            <version>${codingstyle.config.version}</version>
-            <classifier>config</classifier>
-          </dependency>
-          <dependency>
             <groupId>com.github.spotbugs</groupId>
             <artifactId>spotbugs</artifactId>
             <version>${spotbugs.version}</version>
@@ -736,6 +728,12 @@
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
             <version>${jsr305.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>edu.hm.hafner</groupId>
+            <artifactId>codingstyle</artifactId>
+            <version>${codingstyle.config.version}</version>
+            <classifier>config</classifier>
           </dependency>
         </dependencies>
         <executions>
@@ -851,6 +849,11 @@
         </configuration>
         <dependencies>
           <dependency>
+            <groupId>io.jenkins.tools</groupId>
+            <artifactId>revapi-hpi-extractor</artifactId>
+            <version>1.0.1</version>
+          </dependency>
+          <dependency>
             <groupId>org.revapi</groupId>
             <artifactId>revapi-java</artifactId>
             <version>${revapi-java.version}</version>
@@ -859,11 +862,6 @@
             <groupId>org.revapi</groupId>
             <artifactId>revapi-reporter-json</artifactId>
             <version>${revapi-reporter-json-version}</version>
-          </dependency>
-          <dependency>
-            <groupId>io.jenkins.tools</groupId>
-            <artifactId>revapi-hpi-extractor</artifactId>
-            <version>1.0.1</version>
           </dependency>
         </dependencies>
         <executions>
@@ -1025,6 +1023,9 @@
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>versions-maven-plugin</artifactId>
             <version>2.22.0</version>
+            <configuration>
+              <newVersion>${project.version}</newVersion>
+            </configuration>
             <executions>
               <execution>
                 <goals>
@@ -1033,9 +1034,6 @@
                 <phase>verify</phase>
               </execution>
             </executions>
-            <configuration>
-              <newVersion>${project.version}</newVersion>
-            </configuration>
           </plugin>
         </plugins>
       </build>
