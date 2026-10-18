@@ -11,7 +11,7 @@
 
   <groupId>org.jvnet.hudson.plugins</groupId>
   <artifactId>analysis-pom</artifactId>
-  <version>${revision}.${changelist}</version>
+  <version>12.999999-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Analysis Plug-ins Parent POM</name>
   <description>This POM serves as parent POM for all my Jenkins Plugins. It basically enhances the
@@ -1032,6 +1032,30 @@
                   <goal>set</goal>
                 </goals>
                 <phase>verify</phase>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>spotless-apply-local</id>
+      <activation>
+        <property>
+          <name>!env.CI</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.diffplug.spotless</groupId>
+            <artifactId>spotless-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>apply</goal>
+                </goals>
+                <phase>process-sources</phase>
               </execution>
             </executions>
           </plugin>
