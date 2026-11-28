@@ -732,7 +732,7 @@
         </dependencies>
         <executions>
           <execution>
-            <id>spotbugs</id>
+            <id>run-spotbugs</id>
             <goals>
               <goal>check</goal>
             </goals>
